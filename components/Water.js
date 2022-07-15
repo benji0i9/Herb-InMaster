@@ -84,18 +84,25 @@ export default function WaterPlant({ navigation }) {
           renderItem={({ item }) => (
             <>
               <View style={showRectangle ? styles.RectangleShapeView : ''} />
+              <Image 
+                position: 'absolute'
+                  left: '0'
+                  top: '0'
+                  z-index: '-1'
+                  />
               <Image
+
                 style={{
                   width: 150,
                   height: 150,
                 }}
                 source={item.img}
               />
-              <Text> Name: {item.name} </Text>
+              <Text> Name: {item.name}</Text>
               <Text> Type: {item.type} </Text>
 
               <Button
-                title='More information'
+                title='Shovel'
                 onPress={() => navigation.navigate('Info')}
               />
 
@@ -144,4 +151,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#D3F1D5',
     borderRadius: 19,
   },
-})
+});
