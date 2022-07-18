@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function Bluetooth() {
   return (
     <>
-      <Text> this is the info page </Text>
+      <Text> Second slide etc </Text>
     </>
   )
 }

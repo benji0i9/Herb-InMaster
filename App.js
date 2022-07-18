@@ -7,6 +7,8 @@ import Light from './components/Light.js'
 import { createStackNavigator } from '@react-navigation/stack'
 import InfoPage from './components/Info.js'
 import Bluetooth from './components/Bluetooth'
+import { Ionicons } from '@expo/vector-icons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -14,9 +16,41 @@ const Stack = createStackNavigator()
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name= 'Bluetooth' component={Bluetooth} />
-      <Tab.Screen name='My Garden' component={Water} />
-      <Tab.Screen name='Lamp' component={Light} />
+      <Tab.Screen
+        name='Bluetooth'
+        component={Bluetooth}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name='bluetooth'
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen name='My Garden' component={Water}
+      options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name='home'
+              color='#D3F1D5'
+              size={size}
+            />
+          ),
+      }}
+      />
+      <Tab.Screen name='Mic' component={Light}  
+       options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name='microphone'
+              color={color}
+              size={size}
+            />
+          ),
+       }}
+      />
     </Tab.Navigator>
   )
 }

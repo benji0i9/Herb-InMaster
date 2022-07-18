@@ -6,8 +6,20 @@ export default function InfoPage() {
 
  return(
   <>
-   <Text> this is the info page </Text>
+   <Text> Next </Text>
   </>
  )
 }
 
+const styles = StyleSheet.create({
+  contained: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContents: 'Center',
+  },
+  textContainer: {
+    backgroundColor: 'red',
+    margin: 40,
+  }
+});

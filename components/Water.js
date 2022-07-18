@@ -1,13 +1,20 @@
 import * as React from 'react'
-import { StyleSheet, Text, View, FlatList, Image, Button } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, Button, TouchableHighlight } from 'react-native'
 import { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Slider from '@react-native-community/slider'
 import InfoPage from './Info'
+// import { TouchableHighlight } from 'react-native-gesture-handler'
+// import { NavigationContainer } from '@react-navigation/native'
 
 export default function WaterPlant({ navigation }) {
+  const shovelPic = require('../assets/shovel.png');
+  
   const [showRectangle, setShowRectangle] = useState(true)
   const [plantList, setPlantList] = useState([
+
+
+
     //1
     {
       name: 'Plant1',
@@ -83,28 +90,69 @@ export default function WaterPlant({ navigation }) {
           data={plantList}
           renderItem={({ item }) => (
             <>
-              <View style={showRectangle ? styles.RectangleShapeView : ''} />
-              <Image 
-                position: 'absolute'
-                  left: '0'
-                  top: '0'
-                  z-index: '-1'
+              <View style={showRectangle ? styles.RectangleShapeView : ''}>
+                <Image
+                  style={{
+                    alignSelf: 'center',
+                    width: 160,
+                    height: 160,
+                  }}
+                  source={item.img}
+                />
+
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                  }}
+                >
+                  {' '}
+                  Name: {item.name}
+                </Text>
+
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                  }}
+                >
+                  {' '}
+                  Type: {item.type}{' '}
+                </Text>
+
+                {/* <Button
+                  style = {{
+                    height:50,
+                    width:50,
+                  }}
+                 options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <MaterialCommunityIcons
+                        name='gardening'
+                        color='#fff'
+                        size={size}
+                      />
+                    ),
+                  }}
+                  onPress={() => navigation.navigate('Info')}
+
+                /> */}
+                <TouchableHighlight onPress={() => navigation.navigate('Info')}>
+                  <Image
+                    style={{
+                      backgroundColor: '#000000',
+                      alignSelf: 'center',
+                      width: 45,
+                      height: 45,
+                      borderRadius: 5,
+                    }}
+                    source={shovelPic}
                   />
-              <Image
+                  {/* <Text> Shovel </Text> */}
 
-                style={{
-                  width: 150,
-                  height: 150,
-                }}
-                source={item.img}
-              />
-              <Text> Name: {item.name}</Text>
-              <Text> Type: {item.type} </Text>
-
-              <Button
-                title='Shovel'
-                onPress={() => navigation.navigate('Info')}
-              />
+                  {/* { img = require('../assets/Chicken-Sandwich.webp')}, */}
+                </TouchableHighlight>
+              </View>
 
               {/* <Slider
                style={{ width: 200, height: 40 }}
@@ -134,11 +182,11 @@ const styles = StyleSheet.create({
     justifyContents: 'Center',
   },
 
-  textContainer: {
-    backgroundColor: 'red',
-    margin: 40,
-    //  borderBottomWidth: 'medium'
-  },
+  // textContainer: {
+  //   backgroundColor: 'red',
+  //   margin: 40,
+  //   //  borderBottomWidth: 'medium'
+  // },
   container: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -151,4 +199,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#D3F1D5',
     borderRadius: 19,
   },
-});
+  
+})
