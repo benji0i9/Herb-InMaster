@@ -17,68 +17,72 @@ export default function WaterPlant({ navigation }) {
 
     //1
     {
-      name: 'Plant1',
-      type: 'Sunflower',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      name: 'Sunflower',
+      img: require('../assets/sunflower.png'),
     },
     //2
     {
-      name: 'Plant2',
-      type: 'dandylion',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      name: 'Dandylion',
+      img: require('../assets/dandylion.png'),
     },
     //3
     {
-      name: 'Plant3',
-      type: 'cactus',
-      img: require('../assets/Chicken-Sandwich.webp'),
+    
+      name: 'Cactus',
+      img: require('../assets/Cactus.png'),
     },
     //4
     {
-      name: 'Plant4',
-      type: 'daisy',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      
+      name: 'Daisy',
+      img: require('../assets/daisy.png'),
     },
     //5
     {
-      name: 'Plant5',
-      type: 'rose',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      name: 'Rose',
+      img: require('../assets/Rose.png'),
     },
     //6
     {
-      name: 'Plant6',
-      type: 'cone flower',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      name: 'cone flower',
+      img: require('../assets/Coneflower.png'),
     },
     //7
     {
-      name: 'Plant7',
-      type: 'Catmint',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      name: 'Catmint',
+      img: require('../assets/Catmint.png'),
     },
     //8
     {
-      name: 'Plant8',
-      type: 'Agastache',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      name: 'Agastache',
+      img: require('../assets/Agastache1.png'),
     },
     //9
     {
-      name: 'Plant9',
-      type: 'Lantana',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      name: 'lantana',
+      img: require('../assets/Lantana.png'),
     },
     //10
     {
-      name: 'Plant10',
-      type: 'Aloe vera',
-      img: require('../assets/Chicken-Sandwich.webp'),
+      name: 'Aloe Vera',
+      img: require('../assets/Aloevera.png'),
     },
   ])
 
   const changeShape = (shape) => {
     setShowRectangle(shape == 'Rectangle')
+  }
+
+  const FlatListItemSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 30,
+          width: '100%',
+          // backgroundColor: '#000',
+        }}
+      />
+    )
   }
   //  const goWaterLevel = () => {
   //    navigation.navigate('WaterLevel')
@@ -88,6 +92,7 @@ export default function WaterPlant({ navigation }) {
       <SafeAreaView>
         <FlatList
           data={plantList}
+          ItemSeparatorComponent = {FlatListItemSeparator}
           renderItem={({ item }) => (
             <>
               <View style={showRectangle ? styles.RectangleShapeView : ''}>
@@ -96,6 +101,7 @@ export default function WaterPlant({ navigation }) {
                     alignSelf: 'center',
                     width: 160,
                     height: 160,
+                    top: -10,
                   }}
                   source={item.img}
                 />
@@ -110,69 +116,30 @@ export default function WaterPlant({ navigation }) {
                   Name: {item.name}
                 </Text>
 
-                <Text
-                  style={{
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                  }}
-                >
-                  {' '}
-                  Type: {item.type}{' '}
-                </Text>
 
-                {/* <Button
-                  style = {{
-                    height:50,
-                    width:50,
-                  }}
-                 options={{
-                    tabBarIcon: ({ color, size }) => (
-                      <MaterialCommunityIcons
-                        name='gardening'
-                        color='#fff'
-                        size={size}
-                      />
-                    ),
-                  }}
-                  onPress={() => navigation.navigate('Info')}
-
-                /> */}
-                <TouchableHighlight onPress={() => navigation.navigate('Info')}>
+                <TouchableHighlight onPress={() => navigation.navigate('Info', item)}>
                   <Image
                     style={{
                       backgroundColor: '#000000',
                       alignSelf: 'center',
-                      width: 45,
-                      height: 45,
+                      width: 55,
+                      height: 55,
                       borderRadius: 5,
                     }}
                     source={shovelPic}
                   />
-                  {/* <Text> Shovel </Text> */}
-
-                  {/* { img = require('../assets/Chicken-Sandwich.webp')}, */}
+               
                 </TouchableHighlight>
               </View>
-
-              {/* <Slider
-               style={{ width: 200, height: 40 }}
-               minimumValue={0}
-               maximumValue={1}
-               minimumTrackTintColor='#FFFFFF'
-               maximumTrackTintColor='#000000'
-              /> */}
-              {/* <Text style={styles.textContainer}> This stays the same </Text> */}
             </>
-          )}
+          )} 
         />
-        {/* <Pressable onPress={goWaterLevel}>
-         {' '}
-         <Text style={styles.optionsButton}>Explore Options</Text>{' '}
-       </Pressable> */}
+       
       </SafeAreaView>
     </View>
   )
 }
+
 
 const styles = StyleSheet.create({
   contained: {
