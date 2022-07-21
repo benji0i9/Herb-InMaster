@@ -4,6 +4,7 @@ import { NavigationContainer, StackActions } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Water from './components/Water.js'
 import Light from './components/Light.js'
+import Plus from './components/Plus.js'
 import { createStackNavigator } from '@react-navigation/stack'
 import InfoPage from './components/Info.js'
 import Bluetooth from './components/Bluetooth'
@@ -55,13 +56,7 @@ function MyTabs() {
   )
 }
 
-// function InfoPage() {
-//   return(
-//     <>
-//       <Text> More information on the plants </Text>
-//     </>
-//   )
-// }
+
 function MyStack() {
   return (
     <Stack.Navigator
@@ -69,6 +64,7 @@ function MyStack() {
         headerShown: false,
       }}
     >
+      <Stack.Screen name= 'Add' component={Plus}/>
       <Stack.Screen name='Home' component={MyTabs} />
       <Stack.Screen name='Info' component={InfoPage} />
     </Stack.Navigator>
@@ -78,7 +74,6 @@ function MyStack() {
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <MyTabs/> */}
       <MyStack />
     </NavigationContainer>
   )
