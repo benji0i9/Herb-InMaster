@@ -14,7 +14,14 @@ export default function InfoPage({ route, navigation }) {
         style={{ top: 50 }}
         onPress={() => navigation.goBack()}
       >
-        <Text> GO back! </Text>
+        <Text
+            style={{
+              alignSelf: 'center',
+              width: 160,
+              height: 160,
+              top: -10,
+            }}
+        > GO back! </Text>
       </TouchableHighlight>
 
       {/* <Image

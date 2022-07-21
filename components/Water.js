@@ -2,8 +2,7 @@ import * as React from 'react'
 import { StyleSheet, Text, View, FlatList, Image, Button, TouchableHighlight } from 'react-native'
 import { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import Slider from '@react-native-community/slider'
-import InfoPage from './Info'
+// import Slider from '@react-native-community/slider'
 // import { TouchableHighlight } from 'react-native-gesture-handler'
 // import { NavigationContainer } from '@react-navigation/native'
 
@@ -12,8 +11,6 @@ export default function WaterPlant({ navigation }) {
   
   const [showRectangle, setShowRectangle] = useState(true)
   const [plantList, setPlantList] = useState([
-
-
 
     //1
     {
@@ -90,6 +87,21 @@ export default function WaterPlant({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+
+      {/* <TouchableHighlight onPress={() => navigation.navigate('Plus', item)}>
+                  <Image
+                    style={{
+                      backgroundColor: '#000000',
+                      alignSelf: 'center',
+                      width: 55,
+                      height: 55,
+                      borderRadius: 5,
+                    }}
+                    source={whiteplus.jpg}
+                  />
+  
+                </TouchableHighlight> */}
+
         <FlatList
           data={plantList}
           ItemSeparatorComponent = {FlatListItemSeparator}
@@ -116,7 +128,6 @@ export default function WaterPlant({ navigation }) {
                   Name: {item.name}
                 </Text>
 
-
                 <TouchableHighlight onPress={() => navigation.navigate('Info', item)}>
                   <Image
                     style={{
@@ -134,7 +145,6 @@ export default function WaterPlant({ navigation }) {
             </>
           )} 
         />
-       
       </SafeAreaView>
     </View>
   )
@@ -157,6 +167,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   RectangleShapeView: {
     //To make Rectangle Shape
