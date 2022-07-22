@@ -106,8 +106,8 @@ export default function WaterPlant({ navigation }) {
                 borderRadius: 5,
                 justifyContent: 'center',
                 alignItems: 'center'
-              }}
-              onPress={() => navigation.navigate("Plus", item)}
+              }}s
+              onPress={() => navigation.navigate("Add",)}
             >
               <FontAwesome5 name="plus" size={24} color="#fff" />
             </TouchableHighlight>

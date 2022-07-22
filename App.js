@@ -16,7 +16,7 @@ const Stack = createStackNavigator()
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName='My Garden'>
       <Tab.Screen
         name='Bluetooth'
         component={Bluetooth}
@@ -63,7 +63,8 @@ function MyStack() {
       screenOptions={{
         headerShown: false,
       }}
-    >
+      initialRouteName = 'Home'
+>
       <Stack.Screen name= 'Add' component={Plus}/>
       <Stack.Screen name='Home' component={MyTabs} />
       <Stack.Screen name='Info' component={InfoPage} />

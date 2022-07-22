@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Text, View, FlatList, StyleSheet, TextInput, TouchableHighlight } from 'react-native'
+import { Text, View, FlatList, StyleSheet, TextInput, TouchableHighlight, } from 'react-native'
 import { useState } from 'react'
 // import { TouchableHighlight } from 'react-native-gesture-handler'
 
@@ -8,20 +8,13 @@ export default function InfoPage({ route, navigation }) {
   // console.log(name)
   return (
     <View style={{ alignContent: 'center' }}>
-      <Text> {route.params.name} </Text>
+      <Text style={styles.Names}> {route.params.name} </Text>
 
       <TouchableHighlight
         style={{ top: 50 }}
         onPress={() => navigation.goBack()}
       >
-        <Text
-            style={{
-              alignSelf: 'center',
-              width: 160,
-              height: 160,
-              top: -10,
-            }}
-        > GO back! </Text>
+        <Text style={styles.Go}> GO back! </Text>
       </TouchableHighlight>
 
       {/* <Image
@@ -44,4 +37,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContents: 'Center',
   },
+  Names: {
+    top:16,
+    fontSize:30,
+    textAlign: 'center',
+    fontWeight: '900',
+  },
+  Go:{
+  top:-56,
+  }
+
 })
