@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function WaterPlant({ navigation }) {
   const shovelPic = require("../assets/shovel.png");
@@ -97,8 +98,9 @@ export default function WaterPlant({ navigation }) {
         ItemSeparatorComponent={FlatListItemSeparator}
         ListHeaderComponent={() => (
           <View style={styles.plusView}>
-            <TouchableHighlight
+            <TouchableOpacity activeOpacity={1}
               style={{
+
                 backgroundColor: "#000000",
                 alignSelf: "center",
                 width: 45,
@@ -106,11 +108,11 @@ export default function WaterPlant({ navigation }) {
                 borderRadius: 5,
                 justifyContent: 'center',
                 alignItems: 'center'
-              }}s
+              }} 
               onPress={() => navigation.navigate("Add",)}
             >
               <FontAwesome5 name="plus" size={24} color="#fff" />
-            </TouchableHighlight>
+            </TouchableOpacity>
           </View>
         )}
         renderItem={({ item }) => (
@@ -136,7 +138,7 @@ export default function WaterPlant({ navigation }) {
                 Name: {item.name}
               </Text>
 
-              <TouchableHighlight
+              <TouchableOpacity activeOpacity={1}
                 onPress={() => navigation.navigate("Info", item)}
               >
                 <Image
@@ -149,7 +151,7 @@ export default function WaterPlant({ navigation }) {
                   }}
                   source={shovelPic}
                 />
-              </TouchableHighlight>
+              </TouchableOpacity>
             </View>
           </>
         )}
