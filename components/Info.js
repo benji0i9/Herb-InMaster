@@ -1,9 +1,6 @@
 import * as React from 'react'
 import { Text, View, FlatList, StyleSheet, TextInput, TouchableHighlight, } from 'react-native'
 import { useState } from 'react'
-
-
-
 // import { TouchableHighlight } from 'react-native-gesture-handler'
 
 export default function InfoPage({ route, navigation }) {
@@ -12,13 +9,22 @@ export default function InfoPage({ route, navigation }) {
       <Text style={styles.Names}> {route.params.name} </Text>
 
       <TouchableHighlight
-        style={{ backgroundColor: 'red', position: 'absolute', left: 0, top:30 }}
+        style={{
+          backgroundColor: 'red',
+          position: 'absolute',
+          left: 0,
+          top: 60,
+        }}
         onPress={() => navigation.goBack()}
       >
         <Text style={styles.Go}> GO back! </Text>
       </TouchableHighlight>
+
       
-      {/* <Imager
+
+      {/* <Image source={route.params.img}/> */}
+
+      {/* <Image
         style={{
           alignSelf: 'center',
           width: 160,

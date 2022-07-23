@@ -11,6 +11,10 @@ import {
 import { useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { SearchBar } from 'react-native-elements';
+
+
+
 
 export default function WaterPlant({ navigation }) {
   const shovelPic = require("../assets/shovel.png");
@@ -89,6 +93,7 @@ export default function WaterPlant({ navigation }) {
   //    navigation.navigate('WaterLevel')
   //  }
   return (
+    
     <View style={styles.container}>
       <FlatList
         data={plantList}
@@ -158,6 +163,7 @@ export default function WaterPlant({ navigation }) {
       />
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
