@@ -5,7 +5,7 @@ import { useState } from 'react'
 export default function LightPage() {
   return (
     <>
-      <Text> Work In progress  </Text>
+      <Text> Workl  </Text>
     </>
   )
 }

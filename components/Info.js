@@ -1,38 +1,58 @@
 import * as React from 'react'
-import { Text, View, FlatList, StyleSheet, TextInput, TouchableHighlight, } from 'react-native'
+import {
+  Text,
+  View,
+  FlatList,
+  StyleSheet,
+  TextInput,
+  TouchableHighlight,
+  Image,
+  TouchableOpacity,
+} from 'react-native'
 import { useState } from 'react'
 // import { TouchableHighlight } from 'react-native-gesture-handler'
 
 export default function InfoPage({ route, navigation }) {
+  const arrow = require('../assets/backarrow.png')
+  const [showRectangle, setShowRectangle] = useState(true)
   return (
-    <View style={{ alignContent: 'center' }}>
-      <Text style={styles.Names}> {route.params.name} </Text>
+    <View style={showRectangle ? styles.RectangleShapeView : ''}>
+      <View style={{ alignContent: 'center' }}>
+        {/* Plant Name Display */}
 
-      <TouchableHighlight
-        style={{
-          backgroundColor: 'red',
-          position: 'absolute',
-          left: 0,
-          top: 60,
-        }}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.Go}> GO back! </Text>
-      </TouchableHighlight>
+        {/* Back Arrow */}
+        <View style={{ flexDirection: 'row', padding: 22 }}>
+          <TouchableOpacity
+            activeOpacity={1}
+            style={{ top: 67, width: 20, height: -10, marginTop: -40 }}
+            onPress={() => navigation.goBack()}
+          >
+            <Image
+              style={{
+                alignSelf: 'center',
+                width: 35,
+                height: 35,
+                borderRadius: 5,
+                top: -1,
+              }}
+              source={arrow}
+            />
+          </TouchableOpacity>
+          <Text style={styles.Names}> {route.params.name} </Text>
+        </View>
 
-      
-
-      {/* <Image source={route.params.img}/> */}
-
-      {/* <Image
-        style={{
-          alignSelf: 'center',
-          width: 160,
-          height: 160,
-          top: -10,
-        }}
-        source={route.params.img}
-      /> */}
+        {/* Param Plant Image */}
+        <Image
+          style={{
+            alignSelf: 'center',
+            width: 300,
+            height: 300,
+            top: 100,
+            left: 100,
+          }}
+          source={route.params.img}
+        />
+      </View>
     </View>
   )
 }
@@ -46,13 +66,17 @@ const styles = StyleSheet.create({
   },
   Names: {
     top: 16,
-    fontSize:40,
+    fontSize: 40,
     textAlign: 'center',
     fontWeight: '900',
-    backgroundColor: 'yellow'
   },
-  // Go:{
-  // top:-,
-  // }
-
+  RectangleShapeView: {
+    //To make Rectangle Shape
+    marginBottom: 20,
+    width: 300,
+    height: 220,
+    backgroundColor: '#D3F1D5',
+    borderRadius: 19,
+    
+  },
 })

@@ -137,7 +137,6 @@ export default function Plus({ route, navigation }) {
           />
         </View>
       </View>
-
       <FlatList
       
         contentContainerStyle={{ paddingBottom: 300 }}
