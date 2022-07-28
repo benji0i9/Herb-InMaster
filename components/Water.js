@@ -17,7 +17,7 @@ import { SearchBar } from 'react-native-elements';
 
 
 export default function WaterPlant({ navigation }) {
-  const shovelPic = require("../assets/shovel.png");
+  const shovelPic = require("../assets/shovel1.png");
   const whitePlus = require("../assets/shovel.png");
 
   const [showRectangle, setShowRectangle] = useState(true);
@@ -95,31 +95,49 @@ export default function WaterPlant({ navigation }) {
   return (
     
     <View style={styles.container}>
+      <View style={{ flexDirection: 'row', padding: 22, top: 25}}>
+        <View style={styles.plusView}>
+            <View style={{
+              flexDirection: "column"
+            }}>
+              <Text style={{
+              fontSize: 45,
+              fontWeight: "600",
+              right: 40,
+              }}>My Garden
+              </Text>
+
+              <Text style={{
+              fontSize: 17,
+              fontWeight: "400",
+              right: 40,
+              color: "#B5B5B5"
+              }}>(you have # plants)
+              </Text>
+            </View>
+            
+            <TouchableOpacity activeOpacity={1}
+              style={{
+                backgroundColor: "#000000",
+                alignSelf: "center",
+                width: 37,
+                height:37,
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                left: 25
+              }}s
+              onPress={() => navigation.navigate("Add",)}>
+              <FontAwesome5 name="plus" size={21} color="#fff" />
+            </TouchableOpacity>
+          </View>
+      </View>
       <FlatList
         data={plantList}
         header
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         ItemSeparatorComponent={FlatListItemSeparator}
-        ListHeaderComponent={() => (
-          <View style={styles.plusView}>
-            <TouchableOpacity activeOpacity={1}
-              style={{
-
-                backgroundColor: "#000000",
-                alignSelf: "center",
-                width: 45,
-                height: 45,
-                borderRadius: 5,
-                justifyContent: 'center',
-                alignItems: 'center'
-              }} 
-              onPress={() => navigation.navigate("Add",)}
-            >
-              <FontAwesome5 name="plus" size={24} color="#fff" />
-            </TouchableOpacity>
-          </View>
-        )}
         renderItem={({ item }) => (
           <>
             <View style={showRectangle ? styles.RectangleShapeView : ""}>
@@ -146,16 +164,17 @@ export default function WaterPlant({ navigation }) {
               <TouchableOpacity activeOpacity={1}
                 onPress={() => navigation.navigate("Info", item)}
               >
+                <View style={showRectangle ? styles.RectangleShapeView1 : ""}>
                 <Image
                   style={{
-                    backgroundColor: "#000000",
                     alignSelf: "center",
-                    width: 55,
-                    height: 55,
-                    borderRadius: 5,
+                    width:30,
+                    height:30,
+                    top:14,
                   }}
                   source={shovelPic}
                 />
+                </View>
               </TouchableOpacity>
             </View>
           </>
@@ -169,8 +188,8 @@ export default function WaterPlant({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     paddingTop: 15,
   },
   RectangleShapeView: {
@@ -178,12 +197,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 300,
     height: 220,
-    backgroundColor: "#D3F1D5",
+    backgroundColor: '#D3F1D5',
     borderRadius: 19,
   },
   plusView: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
     marginBottom: 20,
   },
-});
+  RectangleShapeView1:{
+    backgroundColor:'#000000',
+    width:60,
+    height:60,
+    left:115,
+    borderRadius:15,
+  }
+})

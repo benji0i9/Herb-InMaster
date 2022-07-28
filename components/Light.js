@@ -5,7 +5,7 @@ import { useState } from 'react'
 export default function LightPage() {
   return (
     <>
-      <Text> Workl  </Text>
+      <Text> Worklol  </Text>
     </>
   )
 }

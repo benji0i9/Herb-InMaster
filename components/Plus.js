@@ -8,12 +8,12 @@ export default function Plus({ route, navigation }) {
   const blackoverlap = require("../assets/Rectangle.png");
   
   //search bar
-  state = {
-    search: '',
-  }
+  const [search, setSearch] = useState({search: ''});
+  
 
-  updateSearch = (search) => {
-    this.setState({ search })
+
+  const updateSearch = (search) => {
+    setSearch({ search })
   }
 
   // const languages = [
@@ -82,7 +82,7 @@ export default function Plus({ route, navigation }) {
         style={{
           height: 30,
           width: '100%',
-          // backgroundColor: '#000',
+          
         }}
       />
     )
@@ -96,7 +96,7 @@ export default function Plus({ route, navigation }) {
         <View>
           <TouchableOpacity
             activeOpacity={1}
-            style={{ top: 67, width:20, height: -10, marginTop:-40,}}
+            style={{ top: 67, width: 20, height: -10, marginTop: -40, }}
             onPress={() => navigation.goBack()}
           >
             <Image
@@ -131,14 +131,15 @@ export default function Plus({ route, navigation }) {
               borderBottomColor: 'transparent',
               borderTopColor: 'transparent',
               borderRadius: 0,
-              marginTop:-40,
+              marginTop: -40,
             }}
             placeholder='Type Here...'
+            value={search.search}
+            onChangeText={ updateSearch } 
           />
         </View>
       </View>
       <FlatList
-      
         contentContainerStyle={{ paddingBottom: 300 }}
         style={{ top: 60 }}
         data={plantList}
@@ -149,51 +150,47 @@ export default function Plus({ route, navigation }) {
         renderItem={({ item }) => (
           <>
             <Image
-                  style={{
-                    position: 'absolute',
-                    top: 11,
-                    alignSelf: "center",
-                    width: 130,
-                    height: 130,
-                    borderRadius: 5,
-                  }}
-                  source={item.img}
-                />
-                
+              style={{
+                position: 'absolute',
+                top: 11,
+                alignSelf: 'center',
+                width: 130,
+                height: 130,
+                borderRadius: 5,
+              }}
+              source={item.img}
+            />
 
-            <TouchableOpacity 
+            <TouchableOpacity
               activeOpacity={1}
               onPress={() => navigation.goBack()}
-              >
-                
-                
+            >
               <Image
                 style={{
-                  alignSelf: "center",
+                  alignSelf: 'center',
                   width: 300,
                   height: 150,
                   borderRadius: 5,
                 }}
                 source={blackoverlap}
               />
-              </TouchableOpacity>
+            </TouchableOpacity>
 
-
-              <Text
-                onPress={() => navigation.goBack()}
-                style={{
-                  position: 'absolute',
-                  top: 60,
-                  fontSize: 30,
-                  alignSelf: "center",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                  color: 'white'
-                }}
-              >
-                {" "}
-                {item.name}
-              </Text>
+            <Text
+              onPress={() => navigation.goBack()}
+              style={{
+                position: 'absolute',
+                top: 60,
+                fontSize: 30,
+                alignSelf: 'center',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                color: 'white',
+              }}
+            >
+              {' '}
+              {item.name}
+            </Text>
           </>
         )}
       />

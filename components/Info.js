@@ -329,7 +329,6 @@ export default function InfoPage({ route, navigation }) {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            backgroundColor: 'grey',
             paddingHorizontal: 20,
           }}
         >
@@ -393,15 +392,16 @@ export default function InfoPage({ route, navigation }) {
                 style={{
                   fontSize: 14,
                   fontWeight: '600',
-                  backgroundColor: 'red',
+                  color:"#000000",
+                
                 }}
               >
-                Recommended temperature:
+                Recommended amount:
               </Text>
 
               <Text
                 style={{
-                  fontSize: 13,
+                  fontSize: 14,
                   fontWeight: '300',
                 }}
               >

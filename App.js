@@ -16,41 +16,49 @@ const Stack = createStackNavigator()
 
 function MyTabs() {
   return (
-    <Tab.Navigator initialRouteName='My Garden'>
+    <Tab.Navigator 
+    initialRouteName='My Garden'
+    tabBarOptions={{ 
+      showLabel: false, 
+      activeTintColor: "#B0E0B3"
+      }}>
       <Tab.Screen
         name='Bluetooth'
         component={Bluetooth}
         options={{
+          headerShown: false,
+
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name='bluetooth'
               color={color}
-              size={size}
+              size={35}
             />
           ),
         }}
       />
-      <Tab.Screen name='My Garden' component={Water}
-      options={{
+      <Tab.Screen
+        name='My Garden'
+        component={Water}
+        options={{
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name='home'
-              color='#D3F1D5'
-              size={size}
-            />
+            <MaterialCommunityIcons name='home' color={color} size={35} />
           ),
-      }}
+        }}
       />
-      <Tab.Screen name='Mic' component={Light}  
-       options={{
+      <Tab.Screen
+        name='Mic'
+        component={Light}
+        options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name='microphone'
               color={color}
-              size={size}
+              size={35}
             />
           ),
-       }}
+        }}
       />
     </Tab.Navigator>
   )
@@ -61,6 +69,7 @@ function MyStack() {
   return (
     <Stack.Navigator
       screenOptions={{
+        
         headerShown: false,
       }}
       initialRouteName = 'Home'
