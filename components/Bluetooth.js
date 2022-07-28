@@ -24,21 +24,12 @@ export default function Bluetooth() {
     },
   ])
   const changeShape = (shape) => {
-    setShowRectangle(shape == 'Rectangle')
+    setShowRectangle(shape === 'Rectangle')
   }
 
   return (
     <View style={{ flexDirection: 'column' }}>
-      {/* <View style={showRectangle ? styles.RectangleShapeView1: ''}>
-        <TouchableHighlight>
-          <Text
-           
-          >
-            Done
-          </Text>
-        </TouchableHighlight>
-      </View> */}
-      <Text style={styles.text}>Plant App & Device</Text>
+      <Text style={styles.text}>Plant App Device</Text>
       <Text style={styles.text2}>
         Connect your device to the HerbIn app {'\n'}
         from the selection below:
@@ -92,11 +83,15 @@ export default function Bluetooth() {
             </>
           )}
         />
-        <View style={showRectangle ? styles.RectangleShapeView1 : ''}>
+        {/* <View style={showRectangle ? styles.RectangleShapeView1 : {color: 'black'}}>
           <TouchableHighlight>
             <Text style={styles.text3}>Done</Text>
           </TouchableHighlight>
-        </View>
+        </View> */}
+        
+        <TouchableHighlight style = {{height: 50, width: 100, backgroundColor: 'green'}}>
+          <Text> Done </Text>
+        </TouchableHighlight>
       </View>
     </View>
   )

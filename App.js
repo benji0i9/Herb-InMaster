@@ -7,7 +7,7 @@ import Light from './components/Light.js'
 import Plus from './components/Plus.js'
 import { createStackNavigator } from '@react-navigation/stack'
 import InfoPage from './components/Info.js'
-import Bluetooth from './components/Bluetooth'
+import Bluetooth from './components/Bluetooth.js'
 import { Ionicons } from '@expo/vector-icons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -16,24 +16,15 @@ const Stack = createStackNavigator()
 
 function MyTabs() {
   return (
-    <Tab.Navigator 
-    initialRouteName='My Garden'
-    tabBarOptions={{ 
-      showLabel: false, 
-      activeTintColor: "#B0E0B3"
-      }}>
+    <Tab.Navigator initialRouteName='My Garden'>
       <Tab.Screen
         name='Bluetooth'
         component={Bluetooth}
         options={{
           headerShown: false,
-
+          tabBarShowLabel: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name='bluetooth'
-              color={color}
-              size={35}
-            />
+            <MaterialCommunityIcons name='bluetooth' color={color} size={35} />
           ),
         }}
       />
@@ -42,6 +33,7 @@ function MyTabs() {
         component={Water}
         options={{
           headerShown: false,
+          tabBarShowLabel: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name='home' color={color} size={35} />
           ),
@@ -51,12 +43,10 @@ function MyTabs() {
         name='Mic'
         component={Light}
         options={{
+          tabBarShowLabel: false,
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name='microphone'
-              color={color}
-              size={35}
-            />
+            <MaterialCommunityIcons name='microphone' color={color} size={35} />
           ),
         }}
       />
