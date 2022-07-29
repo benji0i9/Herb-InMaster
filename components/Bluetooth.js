@@ -12,9 +12,8 @@ import { useState } from 'react'
 
 export default function Bluetooth() {
   const arrow = require('../assets/backarrow.png')
-
-  const [showRectangle, setShowRectangle] = useState(true)
-
+  const [showRectangle, setShowRectangle] = useState
+  (true)
   const [devices, setDevices] = useState([
     {
       Name: 'HerbIn Device',
@@ -89,9 +88,9 @@ export default function Bluetooth() {
           </TouchableHighlight>
         </View> */}
         
-        <TouchableHighlight style = {{height: 50, width: 100, backgroundColor: 'green'}}>
-          <Text> Done </Text>
-        </TouchableHighlight>
+        {/* <TouchableHighlight style = {{height:60, width: 140, backgroundColor: 'black', bottom:-300,left:110,borderRadius:15,}}>
+          <Text style ={{color:'#fff', left:29,bottom:-8,fontSize:30,}}> Done </Text>
+        </TouchableHighlight> */}
       </View>
     </View>
   )
