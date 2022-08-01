@@ -76,6 +76,10 @@ export default function InfoPage({ route, navigation }) {
           />
         </TouchableOpacity>
         <Text style={styles.Names}> {route.params.name} </Text>
+
+        <TouchableOpacity style = {{ display: 'flex', alignItems: 'center',marginTop: 35, marginLeft: 'auto', backgroundColor: 'black', height: 34, width: 66, borderRadius: 15}}>
+          <Text style = {{color: 'white', fontSize: 20}}> Delete </Text>
+        </TouchableOpacity>
       </View>
 
       <Text

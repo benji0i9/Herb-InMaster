@@ -7,6 +7,7 @@ export default function Plus({ route, navigation }) {
   const arrow = require("../assets/backarrow.png");
   const blackoverlap = require("../assets/Rectangle.png");
   
+  
   //search bar
   const [search, setSearch] = useState({search: ''});
   
@@ -96,7 +97,7 @@ export default function Plus({ route, navigation }) {
         <View>
           <TouchableOpacity
             activeOpacity={1}
-            style={{ top: 67, width: 20, height: -10, marginTop: -40, }}
+            style={{ top: 67, width: 20, height: -10, marginTop: -40 }}
             onPress={() => navigation.goBack()}
           >
             <Image
@@ -121,10 +122,12 @@ export default function Plus({ route, navigation }) {
 
         <View style={{ flex: 1, top: 50 }}>
           <SearchBar
-            lightTheme
+            searchIcon = {{ color: 'black', size: 40 }}
+            // lightTheme
             round
-            inputStyle={{ backgroundColor: 'white' }}
-            inputContainerStyle={{ backgroundColor: 'white' }}
+            inputStyle={{ backgroundColor: '#D9D9D9', fontSize: 20 }}
+            inputContainerStyle={{ backgroundColor: '#D9D9D9', }}
+            placeholderTextColor = {'black'}
             containerStyle={{
               backgroundColor: 'transparent',
               borderWidth: 0,
@@ -133,9 +136,9 @@ export default function Plus({ route, navigation }) {
               borderRadius: 0,
               marginTop: -40,
             }}
-            placeholder='Type Here...'
+            placeholder='Search'
             value={search.search}
-            onChangeText={ updateSearch } 
+            onChangeText={updateSearch}
           />
         </View>
       </View>
