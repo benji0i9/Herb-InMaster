@@ -1,5 +1,14 @@
 import * as React from 'react'
 import {
+  useFonts,
+  Quicksand_300Light,
+  Quicksand_400Regular,
+  Quicksand_500Medium,
+  Quicksand_600SemiBold,
+  Quicksand_700Bold,
+} from '@expo-google-fonts/quicksand'
+
+import {
   Text,
   View,
   FlatList,
@@ -88,8 +97,17 @@ export default function LightPage({ navigation }) {
               <Image style={styles.Img3} source={musicIcon} />
               <Text style={styles.text4}>
                 Get Access to our videos{'\n'}
-                on how to prepare your fruits/ vegetables/herbs in your everyday
-                life
+                on how to prepare your fruits/{'\n'}
+                vegetables/herbs in your{'\n'}
+                everyday life
+              </Text>
+            </View>
+            <View style={styles.V}>
+              <Image style={styles.Img3} source={musicIcon} />
+              <Text style={styles.text5}>
+                Get info on how you can use {'\n'}
+                your fruits/vegetables/herbs{'\n'}
+                in your everyday life.{'\n'}
               </Text>
             </View>
           </>
@@ -134,7 +152,7 @@ const styles = StyleSheet.create({
   Img3: {
     width: 60,
     height: 60,
-    left:25,
+    left: 25,
   },
   Up: {
     textAlign: 'center',
@@ -154,14 +172,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     margin: 20,
     borderRadius: 15,
-    height:80,
+    height: 80,
   },
   text2: {
     fontSize: 15,
     left: 44,
-    textAlign:'center'
+    textAlign: 'center',
+    fontWeight: '500',
   },
-  text4:{
-    textAlign:'center',
-  }
+  text4: {
+    textAlign: 'center',
+    fontWeight: '500',
+    left: 45,
+    fontFamily: 'Quicksand_300Light',
+  },
 })
