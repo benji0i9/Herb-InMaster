@@ -1,12 +1,5 @@
 import * as React from 'react'
-import {
-  useFonts,
-  Quicksand_300Light,
-  Quicksand_400Regular,
-  Quicksand_500Medium,
-  Quicksand_600SemiBold,
-  Quicksand_700Bold,
-} from '@expo-google-fonts/quicksand'
+import { useFonts } from 'expo-font'
 
 import {
   Text,
@@ -27,6 +20,15 @@ export default function LightPage({ navigation }) {
   const letter = require('../assets/letter.png')
   const planta = require('../assets/planta.png')
   const musicIcon = require('../assets/Group.png')
+  const youtub = require('../assets/youtub.png')
+  const info = require('../assets/info.png')
+
+
+  // fonts
+  // const [loaded] = useFonts({
+  //   what: require('../assets/fonts/Quicksand.ttf'),
+  // })
+
   const [datalist, setPlantList] = useState([
     //1
     {
@@ -75,6 +77,7 @@ export default function LightPage({ navigation }) {
               backgroundColor: 'white',
               margin: 20,
               borderRadius: 15,
+              paddingHorizontal: 10,
             }}
           >
             <Image style={styles.Image} source={item.img} />
@@ -94,17 +97,16 @@ export default function LightPage({ navigation }) {
               </Text>
             </View>
             <View style={styles.V}>
-              <Image style={styles.Img3} source={musicIcon} />
-              <Text style={styles.text4}>
-                Get Access to our videos{'\n'}
+              <Image style={styles.Img4} source={info} />
+              <Text style={styles.text5}>
+                Get acces to our videos {'\n'}
                 on how to prepare your fruits/{'\n'}
-                vegetables/herbs in your{'\n'}
-                everyday life
+                vegetables/herbs to eat{'\n'}
               </Text>
             </View>
             <View style={styles.V}>
               <Image style={styles.Img3} source={musicIcon} />
-              <Text style={styles.text5}>
+              <Text style={styles.text6}>
                 Get info on how you can use {'\n'}
                 your fruits/vegetables/herbs{'\n'}
                 in your everyday life.{'\n'}
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
   Names: {
     fontWeight: '100',
     fontSize: 24,
+    fontFamily: 'QuickSandLight',
   },
   Image: {
     width: 100,
@@ -134,6 +137,7 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     fontWeight: 'bold',
     fontSize: 25,
+    fontFamily: 'QuickSandLight',
   },
   Img1: {
     alignSelf: 'center',
@@ -154,15 +158,22 @@ const styles = StyleSheet.create({
     height: 60,
     left: 25,
   },
+  Img4: {
+    width: 70,
+    height: 70,
+    left: 240,
+  },
   Up: {
     textAlign: 'center',
     fontSize: 25,
-    fontWeight: '300',
+    fontWeight: '500',
+    fontFamily: 'QuickSandBold',
   },
   lol: {
     textAlign: 'center',
-    fontSize: 22,
+    fontSize: 25,
     color: '#ffffff',
+    fontFamily: 'QuickSandLight',
   },
   V: {
     display: 'flex',
@@ -179,11 +190,18 @@ const styles = StyleSheet.create({
     left: 44,
     textAlign: 'center',
     fontWeight: '500',
+    fontFamily: 'QuickSandBold',
   },
-  text4: {
+  text6: {
     textAlign: 'center',
     fontWeight: '500',
-    left: 45,
-    fontFamily: 'Quicksand_300Light',
+    left: 50,
+    fontFamily: 'QuickSandBold',
+  },
+  text5: {
+    textAlign: 'center',
+    right: 45,
+    fontWeight: '500',
+    fontFamily: 'QuickSandBold',
   },
 })

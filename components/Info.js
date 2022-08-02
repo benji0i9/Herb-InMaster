@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useFonts } from 'expo-font'
 import {
   Text,
   View,
@@ -56,7 +57,7 @@ export default function InfoPage({ route, navigation }) {
   )
 
   return (
-    <View style={{ alignContent: 'center', top: -40 }}>
+    <View style={{ alignContent: 'center', top: -50 }}>
       {/* Plant Name Display + Back Button*/}
       <View style={{ flexDirection: 'row', padding: 22, top: 25 }}>
         <TouchableOpacity
@@ -77,17 +78,29 @@ export default function InfoPage({ route, navigation }) {
         </TouchableOpacity>
         <Text style={styles.Names}> {route.params.name} </Text>
 
-        <TouchableOpacity style = {{ display: 'flex', alignItems: 'center',marginTop: 35, marginLeft: 'auto', backgroundColor: 'black', height: 34, width: 66, borderRadius: 15}}>
-          <Text style = {{color: 'white', fontSize: 20}}> Delete </Text>
+        <TouchableOpacity
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            marginTop: 35,
+            marginLeft: 'auto',
+            backgroundColor: 'black',
+            height: 34,
+            width: 66,
+            borderRadius: 15,
+          }}
+        >
+          <Text style={{ color: 'white', fontSize: 20 }}> Delete </Text>
         </TouchableOpacity>
       </View>
 
       <Text
         style={{
-          fontSize: 20,
+          fontSize: 24,
           fontWeight: '600',
           top: 50,
           left: 25,
+          fontFamily: 'QuickSandBold',
         }}
       >
         {' '}
@@ -232,6 +245,7 @@ export default function InfoPage({ route, navigation }) {
           left: 20,
           fontSize: 22,
           top: -10,
+          fontFamily: 'QuickSandMedium',
         }}
       >
         Water Control
@@ -263,6 +277,7 @@ export default function InfoPage({ route, navigation }) {
               fontSize: 16,
               left: -2,
               fontWeight: '600',
+              fontFamily: 'QuickSandMedium',
             }}
           >
             0
@@ -275,6 +290,7 @@ export default function InfoPage({ route, navigation }) {
               fontSize: 16,
               left: 186,
               fontWeight: '600',
+              fontFamily: 'QuickSandMedium',
             }}
           >
             2
@@ -300,6 +316,7 @@ export default function InfoPage({ route, navigation }) {
                 top: 40,
                 fontSize: 14,
                 fontWeight: '600',
+                fontFamily: 'QuickSandMedium',
               }}
             >
               Recommended amount:
@@ -310,7 +327,9 @@ export default function InfoPage({ route, navigation }) {
                 position: 'absolute',
                 top: 54,
                 fontSize: 13,
+                color: '#6A6A6A',
                 fontWeight: '300',
+                fontFamily: 'QuickSandBold',
               }}
             >
               0.5 gallons per day
@@ -324,6 +343,7 @@ export default function InfoPage({ route, navigation }) {
           style={{
             left: 30,
             fontSize: 22,
+            fontFamily: 'QuickSandMedium',
           }}
         >
           Light Control
@@ -338,6 +358,7 @@ export default function InfoPage({ route, navigation }) {
         >
           <Image
             style={{
+              top: -10,
               width: 55,
               height: 55,
             }}
@@ -360,16 +381,18 @@ export default function InfoPage({ route, navigation }) {
             >
               <Text
                 style={{
-                  fontSize: 16,
-                  fontWeight: '600',
+                  // fontSize: 16,
+                  // fontWeight: '600'
+                  fontFamily: 'QuickSandBold',
                 }}
               >
                 Reg
               </Text>
               <Text
                 style={{
-                  fontSize: 16,
-                  fontWeight: '600',
+                  // fontSize: 1,
+                  // fontWeight: '600',
+                  fontFamily: 'QuickSandBold',
                 }}
               >
                 90°
@@ -377,10 +400,11 @@ export default function InfoPage({ route, navigation }) {
             </View>
 
             <View>
+              <View style={{width:165,}}>
               <Slider
                 value={SunSliderValue}
                 minimumValue={0}
-                maximumValue={1}
+                maximumValue={2}
                 step={0.1}
                 onValueChange={(SunSliderValue) =>
                   setSunSliderValue(SunSliderValue)
@@ -391,22 +415,33 @@ export default function InfoPage({ route, navigation }) {
                 renderTrackMarkComponent={CustomSunTracker}
                 trackMarks={[0.8]}
               />
+            </View>
 
               <Text
                 style={{
+                  top: -10,
+                  position: 'relative',
                   fontSize: 14,
                   fontWeight: '600',
-                  color:"#000000",
-                
+                  fontFamily: 'QuickSandMedium',
+                  flexDirection: 'row',
+                  width: 200,
+                  height: 20,
+                  left: -10,
                 }}
               >
-                Recommended amount:
+                Recommended amount:{'\n'}
               </Text>
 
               <Text
                 style={{
-                  fontSize: 14,
+                  left: -10,
+                  top: -10,
+                  height: 20,
+                  fontSize: 13,
                   fontWeight: '300',
+                  fontFamily: 'QuickSandBold',
+                  color: '#6A6A6A',
                 }}
               >
                 50-85 F°
@@ -431,19 +466,21 @@ const styles = StyleSheet.create({
     left: 10,
     fontSize: 37,
     textAlign: 'center',
-    fontWeight: '900',
+    fontFamily: 'QuickSandBold',
   },
   DayButtonText: {
     fontSize: 16,
     fontWeight: '600',
     top: 22,
     left: 8,
+    fontFamily: 'QuickSandBold',
   },
   DayButtonText2: {
     fontSize: 16,
     fontWeight: '600',
     top: 22,
     left: 11,
+    fontFamily: 'QuickSandBold',
   },
   pressed: {
     width: 50,
@@ -456,6 +493,7 @@ const styles = StyleSheet.create({
     height: 64,
     borderRadius: 10,
     backgroundColor: '#D3F1D5',
+    fontFamily: 'QuickSandBold',
   },
   track: {
     borderColor: 'red',
@@ -465,7 +503,6 @@ const styles = StyleSheet.create({
   SunTrackerShapeView: {
     width: 6,
     height: 30,
-    left: 7,
     backgroundColor: '#FFDF6F',
   },
   WaterTrackerShapeView: {

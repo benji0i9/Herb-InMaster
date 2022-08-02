@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useFonts } from 'expo-font'
 import {
   StyleSheet,
   Text,
@@ -93,44 +94,56 @@ export default function WaterPlant({ navigation }) {
   //    navigation.navigate('WaterLevel')
   //  }
   return (
-    
     <View style={styles.container}>
-      <View style={{ flexDirection: 'row', padding: 22, top: 25}}>
+      <View style={{ flexDirection: 'row', padding: 22, top: 25 }}>
         <View style={styles.plusView}>
-            <View style={{
-              flexDirection: "column"
-            }}>
-              <Text style={{
-              fontSize: 45,
-              fontWeight: "600",
-              right: 40,
-              }}>My Garden
-              </Text>
-
-              <Text style={{
-              fontSize: 17,
-              fontWeight: "400",
-              right: 40,
-              color: "#B5B5B5"
-              }}>(you have # plants)
-              </Text>
-            </View>
-            
-            <TouchableOpacity activeOpacity={1}
+          <View
+            style={{
+              flexDirection: 'column',
+            }}
+          >
+            <Text
               style={{
-                backgroundColor: "#000000",
-                alignSelf: "center",
-                width: 37,
-                height:37,
-                borderRadius: 5,
-                justifyContent: 'center',
-                alignItems: 'center',
-                left: 25
-              }}s
-              onPress={() => navigation.navigate("Add",)}>
-              <FontAwesome5 name="plus" size={21} color="#fff" />
-            </TouchableOpacity>
+                fontSize: 45,
+                fontWeight: '600',
+                right: 40,
+                fontFamily: 'QuickSandBold',
+              }}
+            >
+              My Garden
+            </Text>
+
+            <Text
+              style={{
+                fontSize: 17,
+                fontWeight: '400',
+                right: 40,
+                color: '#B5B5B5',
+                fontFamily: 'QuicksandLight',
+              }}
+            >
+              (you have # plants)
+            </Text>
           </View>
+
+          <TouchableOpacity
+            activeOpacity={1}
+            style={{
+              backgroundColor: '#000000',
+              alignSelf: 'center',
+              width: 37,
+              height: 37,
+              borderRadius: 5,
+              justifyContent: 'center',
+              alignItems: 'center',
+              left: 25,
+            }}
+            s
+            onPress={() => navigation.navigate('Add')}
+          >
+            <FontAwesome5 name='plus' size={21} color='#fff' />
+          </TouchableOpacity>
+        </View>
       </View>
       <FlatList
         data={plantList}
@@ -140,10 +153,10 @@ export default function WaterPlant({ navigation }) {
         ItemSeparatorComponent={FlatListItemSeparator}
         renderItem={({ item }) => (
           <>
-            <View style={showRectangle ? styles.RectangleShapeView : ""}>
+            <View style={showRectangle ? styles.RectangleShapeView : ''}>
               <Image
                 style={{
-                  alignSelf: "center",
+                  alignSelf: 'center',
                   width: 160,
                   height: 160,
                   top: -10,
@@ -153,27 +166,29 @@ export default function WaterPlant({ navigation }) {
 
               <Text
                 style={{
-                  fontWeight: "bold",
-                  textAlign: "center",
+                  fontFamily:'QuickSandBold',
+                  textAlign: 'center',
+                  fontSize:20,
+
                 }}
               >
-                {" "}
-                Name: {item.name}
+                {item.name}
               </Text>
 
-              <TouchableOpacity activeOpacity={1}
-                onPress={() => navigation.navigate("Info", item)}
+              <TouchableOpacity
+                activeOpacity={1}
+                onPress={() => navigation.navigate('Info', item)}
               >
-                <View style={showRectangle ? styles.RectangleShapeView1 : ""}>
-                <Image
-                  style={{
-                    alignSelf: "center",
-                    width:30,
-                    height:30,
-                    top:14,
-                  }}
-                  source={shovelPic}
-                />
+                <View style={showRectangle ? styles.RectangleShapeView1 : ''}>
+                  <Image
+                    style={{
+                      alignSelf: 'center',
+                      width: 30,
+                      height: 30,
+                      top: 14,
+                    }}
+                    source={shovelPic}
+                  />
                 </View>
               </TouchableOpacity>
             </View>
@@ -181,7 +196,7 @@ export default function WaterPlant({ navigation }) {
         )}
       />
     </View>
-  );
+  )
 
 }
 

@@ -10,6 +10,7 @@ import InfoPage from './components/Info.js'
 import Bluetooth from './components/Bluetooth.js'
 import { Ionicons } from '@expo/vector-icons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { useFonts } from 'expo-font'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -72,6 +73,15 @@ function MyStack() {
 }
 
 export default function App() {
+  const [loaded] = useFonts({
+    QuickSand: require('./assets/fonts/Quicksand.ttf'),
+    QuickSandLight: require('./assets/fonts/QuicksandLight.ttf'),
+    QuickSandBold: require('./assets/fonts/QuicksandBold.ttf'),
+    QuickSandMedium: require('./assets/fonts/QuicksandMedium.ttf'),
+  })
+  if(!loaded){
+    return null
+  }
   return (
     <NavigationContainer>
       <MyStack />

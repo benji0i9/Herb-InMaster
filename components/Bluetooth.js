@@ -31,7 +31,7 @@ export default function Bluetooth() {
       <Text style={styles.text}>Plant App Device</Text>
       <Text style={styles.text2}>
         Connect your device to the HerbIn app {'\n'}
-        from the selection below:
+        from the selection below
       </Text>
       <View>
         <FlatList
@@ -54,6 +54,7 @@ export default function Bluetooth() {
                     // marginTop:80,
                     color: '#767676',
                     textAlign: 'center',
+                    fontFamily: 'QuickSandMedium',
                   }}
                 >
                   {item.Name}
@@ -68,13 +69,12 @@ export default function Bluetooth() {
                 >
                   <Text
                     style={{
-                      fontWeight: 'bold',
                       textAlign: 'center',
                       marginTop: 8,
                       color: '#48A2E3',
+                      fontFamily: 'QuickSandBold',
                     }}
                   >
-                    {' '}
                     Connect
                   </Text>
                 </TouchableHighlight>
@@ -87,7 +87,7 @@ export default function Bluetooth() {
             <Text style={styles.text3}>Done</Text>
           </TouchableHighlight>
         </View> */}
-        
+
         {/* <TouchableHighlight style = {{height:60, width: 140, backgroundColor: 'black', bottom:-300,left:110,borderRadius:15,}}>
           <Text style ={{color:'#fff', left:29,bottom:-8,fontSize:30,}}> Done </Text>
         </TouchableHighlight> */}
@@ -108,12 +108,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 22,
+    fontFamily:'QuickSandBold',
   },
   text2: {
     bottom: -70,
-    left: 40,
+    left: 30,
     fontSize: 18,
     fontWeight: '200',
+    fontFamily:'QuickSandLight'
   },
   text3:{
     textAlign:'center',

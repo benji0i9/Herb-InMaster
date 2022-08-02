@@ -122,12 +122,17 @@ export default function Plus({ route, navigation }) {
 
         <View style={{ flex: 1, top: 50 }}>
           <SearchBar
-            searchIcon = {{ color: 'black', size: 40 }}
+            searchIcon={{ color: 'black', size: 40 }}
             // lightTheme
             round
-            inputStyle={{ backgroundColor: '#D9D9D9', fontSize: 20 }}
-            inputContainerStyle={{ backgroundColor: '#D9D9D9', }}
-            placeholderTextColor = {'black'}
+            inputStyle={{
+              backgroundColor: '#D9D9D9',
+              fontSize: 20,
+              fontFamily: 'QuickSandMedium',
+              color: 'black'
+            }}
+            inputContainerStyle={{ backgroundColor: '#D9D9D9' }}
+            placeholderTextColor={'black'}
             containerStyle={{
               backgroundColor: 'transparent',
               borderWidth: 0,
@@ -186,9 +191,9 @@ export default function Plus({ route, navigation }) {
                 top: 60,
                 fontSize: 30,
                 alignSelf: 'center',
-                fontWeight: 'bold',
                 textAlign: 'center',
                 color: 'white',
+                fontFamily: 'QuickSandBold',
               }}
             >
               {' '}
