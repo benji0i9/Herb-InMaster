@@ -148,7 +148,7 @@ export default function WaterPlant({ navigation }) {
         <FlatList
           data={plantList}
           header
-          contentContainerStyle={{ paddingTop: 20}}
+          contentContainerStyle={{ paddingTop: 20,}}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           ItemSeparatorComponent={FlatListItemSeparator}

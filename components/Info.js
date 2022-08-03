@@ -133,7 +133,7 @@ export default function InfoPage({ route, navigation }) {
             justifyContent: 'space-between',
             marginBottom: 127,
             top: 70,
-            left: -40,
+            left: -50,
           }}
         >
           {/* Mon Button */}

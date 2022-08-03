@@ -22,6 +22,7 @@ export default function LightPage({ navigation }) {
   const musicIcon = require('../assets/Group.png')
   const yt = require('../assets/yt.png')
   const info = require('../assets/info.png')
+  const circle = require ('../assets/circle.png')
 
 
   // fonts
@@ -50,15 +51,12 @@ export default function LightPage({ navigation }) {
     },
   ])
   return (
-    <View style={{ flex: 1 }}>
-      <FlatList
-        data={datalist}
-        // style = {styles.greenRec}
-        style={{  backgroundColor: '#9DC071', borderTopLeftRadius:100,}}
-        ListHeaderComponent={
-          <View style={{ backgroundColor: 'white',}}>
+  
+    <View style={{ flex: 1, backgroundColor: 'white',}}>
+      <View style={{ backgroundColor: 'white',top:-60,}}>
             <TouchableOpacity onPress={() => navigation.navigate('My Garden')}>
               <Image style={styles.Img1} source={letter} />
+              <Image style={styles.Img6} source={circle} />
             </TouchableOpacity>
 
             <View>
@@ -66,7 +64,13 @@ export default function LightPage({ navigation }) {
             </View>
             <Text style={styles.Up}> Upgrade to HerbIn Plus </Text>
           </View>
-        }
+      <FlatList
+        data={datalist}
+        // style = {styles.greenRec}
+        style={{ backgroundColor: '#9DC071', borderTopLeftRadius: 20, borderTopRightRadius: 20, }}
+        // ListHeaderComponent={
+          
+        // }
         renderItem={({ item }) => (
           <View
             style={{
@@ -116,6 +120,7 @@ export default function LightPage({ navigation }) {
         }
       />
     </View>
+  
   )
 }
 
@@ -141,10 +146,11 @@ const styles = StyleSheet.create({
   },
   Img1: {
     alignSelf: 'center',
-    width: 20,
-    height: 20,
+    width: 11,
+    height: 11,
     left: 160,
     marginTop: 30,
+    top:85,
   },
   Img2: {
     alignSelf: 'center',
@@ -163,11 +169,18 @@ const styles = StyleSheet.create({
     height: 70,
     left: 240,
   },
+  Img6:{
+    width:30,
+    height:30,
+    left:325,
+    top:65,
+  },
   Up: {
     textAlign: 'center',
     fontSize: 25,
     fontWeight: '500',
     fontFamily: 'QuickSandBold',
+    top:10,
   },
   lol: {
     textAlign: 'center',
