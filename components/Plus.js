@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { SearchBar } from 'react-native-elements'
 
 export default function Plus({ route, navigation }) {
-  const arrow = require("../assets/backarrow.png");
+  const arrow = require("../assets/arrow.png");
   const blackoverlap = require("../assets/Rectangle.png");
   
   
@@ -93,23 +93,33 @@ export default function Plus({ route, navigation }) {
     <View style={{ alignContent: 'center' }}>
       {/* <Text> {route.params.name} </Text> */}
 
-      <View style={{ flexDirection: 'row', padding: 22 }}>
+      <View style={{ flexDirection: 'row', padding: 22, borderRadius: 30 }}>
         <View>
           <TouchableOpacity
             activeOpacity={1}
-            style={{ top: 67, width: 20, height: -10, marginTop: -40 }}
+            style={{
+              top: 67,
+              width: 20,
+              height: -10,
+              marginTop: -40,
+              borderRadius: 18,
+
+              
+            }}
             onPress={() => navigation.goBack()}
           >
-            <Image
-              style={{
-                alignSelf: 'center',
-                width: 35,
-                height: 35,
-                borderRadius: 5,
-              }}
-              source={arrow}
-            />
-            {/* <Text
+          </TouchableOpacity>
+          <Image
+            style={{
+              alignSelf: 'center',
+              width: 35,
+              height: 35,
+              borderRadius: 5,
+              top:65,
+            }}
+            source={arrow}
+          />
+          {/* <Text
             style={{
               alignSelf: 'center',
               width: 160,
@@ -117,7 +127,6 @@ export default function Plus({ route, navigation }) {
               left: 30
             }}
         > Go back button </Text> */}
-          </TouchableOpacity>
         </View>
 
         <View style={{ flex: 1, top: 50 }}>
@@ -129,7 +138,7 @@ export default function Plus({ route, navigation }) {
               backgroundColor: '#D9D9D9',
               fontSize: 20,
               fontFamily: 'QuickSandMedium',
-              color: 'black'
+              color: 'black',
             }}
             inputContainerStyle={{ backgroundColor: '#D9D9D9' }}
             placeholderTextColor={'black'}
@@ -148,7 +157,7 @@ export default function Plus({ route, navigation }) {
         </View>
       </View>
       <FlatList
-        contentContainerStyle={{ paddingBottom: 300 }}
+        contentContainerStyle={{ paddingBottom: 150 }}
         style={{ top: 60 }}
         data={plantList}
         header
@@ -178,7 +187,7 @@ export default function Plus({ route, navigation }) {
                   alignSelf: 'center',
                   width: 300,
                   height: 150,
-                  borderRadius: 5,
+                  borderRadius: 15,
                 }}
                 source={blackoverlap}
               />
@@ -188,7 +197,7 @@ export default function Plus({ route, navigation }) {
               onPress={() => navigation.goBack()}
               style={{
                 position: 'absolute',
-                top: 60,
+                top:60,
                 fontSize: 30,
                 alignSelf: 'center',
                 textAlign: 'center',

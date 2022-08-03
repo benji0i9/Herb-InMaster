@@ -11,7 +11,7 @@ import {
 import { useState } from 'react'
 
 export default function Bluetooth() {
-  const arrow = require('../assets/backarrow.png')
+  const backarrow = require('../assets/arrow.png')
   const [showRectangle, setShowRectangle] = useState
   (true)
   const [devices, setDevices] = useState([

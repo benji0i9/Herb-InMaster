@@ -20,7 +20,7 @@ export default function LightPage({ navigation }) {
   const letter = require('../assets/letter.png')
   const planta = require('../assets/planta.png')
   const musicIcon = require('../assets/Group.png')
-  const youtub = require('../assets/youtub.png')
+  const yt = require('../assets/yt.png')
   const info = require('../assets/info.png')
 
 
@@ -54,9 +54,9 @@ export default function LightPage({ navigation }) {
       <FlatList
         data={datalist}
         // style = {styles.greenRec}
-        style={{ flex: 1, backgroundColor: '#9DC071' }}
+        style={{  backgroundColor: '#9DC071', borderTopLeftRadius:100,}}
         ListHeaderComponent={
-          <View style={{ backgroundColor: 'white', marginBottom: 40 }}>
+          <View style={{ backgroundColor: 'white',}}>
             <TouchableOpacity onPress={() => navigation.navigate('My Garden')}>
               <Image style={styles.Img1} source={letter} />
             </TouchableOpacity>
@@ -76,7 +76,7 @@ export default function LightPage({ navigation }) {
               flexDirection: 'row',
               backgroundColor: 'white',
               margin: 20,
-              borderRadius: 15,
+              borderRadius: 20,
               paddingHorizontal: 10,
             }}
           >
@@ -105,7 +105,7 @@ export default function LightPage({ navigation }) {
               </Text>
             </View>
             <View style={styles.V}>
-              <Image style={styles.Img3} source={musicIcon} />
+              <Image style={styles.Img3} source={yt} />
               <Text style={styles.text6}>
                 Get info on how you can use {'\n'}
                 your fruits/vegetables/herbs{'\n'}
@@ -154,8 +154,8 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   Img3: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     left: 25,
   },
   Img4: {

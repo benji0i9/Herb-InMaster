@@ -18,7 +18,7 @@ import { useState } from 'react'
 // import { TouchableHighlight } from 'react-native-gesture-handler'
 
 export default function InfoPage({ route, navigation }) {
-  const arrow = require('../assets/backarrow.png')
+  const arrow = require('../assets/arrow.png')
   const sun = require('../assets/sunicon.png')
   const waterDrop = require('../assets/waterdrop.png')
 
@@ -57,9 +57,9 @@ export default function InfoPage({ route, navigation }) {
   )
 
   return (
-    <View style={{ alignContent: 'center', top: -50 }}>
+    <View style={{ alignContent: 'center', top: -70 }}>
       {/* Plant Name Display + Back Button*/}
-      <View style={{ flexDirection: 'row', padding: 22, top: 25 }}>
+      <View style={{ flexDirection: 'row', padding: 22, top: 55, }}>
         <TouchableOpacity
           activeOpacity={1}
           style={{ top: 67, width: 20, height: -10, marginTop: -40 }}
@@ -71,7 +71,7 @@ export default function InfoPage({ route, navigation }) {
               width: 35,
               height: 35,
               borderRadius: 5,
-              top: -1,
+              top: 10,
             }}
             source={arrow}
           />
@@ -87,10 +87,12 @@ export default function InfoPage({ route, navigation }) {
             backgroundColor: 'black',
             height: 34,
             width: 66,
-            borderRadius: 15,
+            borderRadius: 10,
+            left:10,
+            top:5,
           }}
         >
-          <Text style={{ color: 'white', fontSize: 20 }}> Delete </Text>
+          <Text style={{ color: 'white', fontSize: 20,fontFamily:'QuickSand',textAlign:'center',}}> Delete </Text>
         </TouchableOpacity>
       </View>
 
