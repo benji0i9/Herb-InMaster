@@ -22,8 +22,7 @@ export default function LightPage({ navigation }) {
   const musicIcon = require('../assets/Group.png')
   const yt = require('../assets/yt.png')
   const info = require('../assets/info.png')
-  const circle = require ('../assets/circle.png')
-
+  const circle = require('../assets/circle.png')
 
   // fonts
   // const [loaded] = useFonts({
@@ -51,25 +50,28 @@ export default function LightPage({ navigation }) {
     },
   ])
   return (
-  
-    <View style={{ flex: 1, backgroundColor: 'white',}}>
-      <View style={{ backgroundColor: 'white',top:-60,}}>
-            <TouchableOpacity onPress={() => navigation.navigate('My Garden')}>
-              <Image style={styles.Img1} source={letter} />
-              <Image style={styles.Img6} source={circle} />
-            </TouchableOpacity>
+    <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ backgroundColor: 'white', top: -60 }}>
+        <TouchableOpacity onPress={() => navigation.navigate('My Garden')}>
+          <Image style={styles.Img1} source={letter} />
+          <Image style={styles.Img6} source={circle} />
+        </TouchableOpacity>
 
-            <View>
-              <Image style={styles.Img2} source={planta} />
-            </View>
-            <Text style={styles.Up}> Upgrade to HerbIn Plus </Text>
-          </View>
+        <View>
+          <Image style={styles.Img2} source={planta} />
+        </View>
+        <Text style={styles.Up}> Upgrade to HerbIn Plus </Text>
+      </View>
       <FlatList
         data={datalist}
         // style = {styles.greenRec}
-        style={{ backgroundColor: '#9DC071', borderTopLeftRadius: 20, borderTopRightRadius: 20, }}
+        style={{
+          backgroundColor: '#9DC071',
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+        }}
         // ListHeaderComponent={
-          
+
         // }
         renderItem={({ item }) => (
           <View
@@ -120,7 +122,6 @@ export default function LightPage({ navigation }) {
         }
       />
     </View>
-  
   )
 }
 
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     height: 11,
     left: 160,
     marginTop: 30,
-    top:85,
+    top: 85,
   },
   Img2: {
     alignSelf: 'center',
@@ -169,18 +170,18 @@ const styles = StyleSheet.create({
     height: 70,
     left: 240,
   },
-  Img6:{
-    width:30,
-    height:30,
-    left:325,
-    top:65,
+  Img6: {
+    width: 30,
+    height: 30,
+    left: 325,
+    top: 65,
   },
   Up: {
     textAlign: 'center',
     fontSize: 25,
     fontWeight: '500',
     fontFamily: 'QuickSandBold',
-    top:10,
+    top: 10,
   },
   lol: {
     textAlign: 'center',

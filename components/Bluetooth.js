@@ -12,8 +12,7 @@ import { useState } from 'react'
 
 export default function Bluetooth() {
   const backarrow = require('../assets/arrow.png')
-  const [showRectangle, setShowRectangle] = useState
-  (true)
+  const [showRectangle, setShowRectangle] = useState(true)
   const [devices, setDevices] = useState([
     {
       Name: 'HerbIn Device',
@@ -26,7 +25,6 @@ export default function Bluetooth() {
   ])
 
   const checkIndexEven = (index) => {
-
     return index % 2 === 0
   }
 
@@ -48,7 +46,10 @@ export default function Bluetooth() {
           renderItem={({ item }) => (
             <>
               <View
-                style={[styles.textBorder, {borderBottomWidth: checkIndexEven(item.index) ?  0 : 1 }  ] }
+                style={[
+                  styles.textBorder,
+                  { borderBottomWidth: checkIndexEven(item.index) ? 0 : 1 },
+                ]}
               >
                 <Text
                   style={{

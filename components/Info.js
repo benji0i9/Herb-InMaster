@@ -59,7 +59,7 @@ export default function InfoPage({ route, navigation }) {
   return (
     <View style={{ alignContent: 'center', top: -70 }}>
       {/* Plant Name Display + Back Button*/}
-      <View style={{ flexDirection: 'row', padding: 22, top: 55, }}>
+      <View style={{ flexDirection: 'row', padding: 22, top: 55 }}>
         <TouchableOpacity
           activeOpacity={1}
           style={{ top: 67, width: 20, height: -10, marginTop: -40 }}
@@ -88,11 +88,21 @@ export default function InfoPage({ route, navigation }) {
             height: 34,
             width: 66,
             borderRadius: 10,
-            left:10,
-            top:5,
+            left: 10,
+            top: 5,
           }}
         >
-          <Text style={{ color: 'white', fontSize: 20,fontFamily:'QuickSand',textAlign:'center',}}> Delete </Text>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: 20,
+              fontFamily: 'QuickSand',
+              textAlign: 'center',
+            }}
+          >
+            {' '}
+            Delete{' '}
+          </Text>
         </TouchableOpacity>
       </View>
 
@@ -402,22 +412,22 @@ export default function InfoPage({ route, navigation }) {
             </View>
 
             <View>
-              <View style={{width:165,}}>
-              <Slider
-                value={SunSliderValue}
-                minimumValue={0}
-                maximumValue={2}
-                step={0.1}
-                onValueChange={(SunSliderValue) =>
-                  setSunSliderValue(SunSliderValue)
-                }
-                maximumTrackTintColor='#D9D9D9'
-                minimumTrackTintColor='#FFDF6F'
-                thumbTintColor='#F1BC6C'
-                renderTrackMarkComponent={CustomSunTracker}
-                trackMarks={[0.8]}
-              />
-            </View>
+              <View style={{ width: 165 }}>
+                <Slider
+                  value={SunSliderValue}
+                  minimumValue={0}
+                  maximumValue={2}
+                  step={0.1}
+                  onValueChange={(SunSliderValue) =>
+                    setSunSliderValue(SunSliderValue)
+                  }
+                  maximumTrackTintColor='#D9D9D9'
+                  minimumTrackTintColor='#FFDF6F'
+                  thumbTintColor='#F1BC6C'
+                  renderTrackMarkComponent={CustomSunTracker}
+                  trackMarks={[0.8]}
+                />
+              </View>
 
               <Text
                 style={{

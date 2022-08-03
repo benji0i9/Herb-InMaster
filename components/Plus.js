@@ -1,17 +1,23 @@
 import * as React from 'react'
-import {StyleSheet,Text, View,FlatList,Image,Button,TouchableOpacity, TouchableHighlight,} from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  Button,
+  TouchableOpacity,
+  TouchableHighlight,
+} from 'react-native'
 import { useState } from 'react'
 import { SearchBar } from 'react-native-elements'
 
 export default function Plus({ route, navigation }) {
-  const arrow = require("../assets/arrow.png");
-  const blackoverlap = require("../assets/Rectangle.png");
-  
-  
-  //search bar
-  const [search, setSearch] = useState({search: ''});
-  
+  const arrow = require('../assets/arrow.png')
+  const blackoverlap = require('../assets/Rectangle.png')
 
+  //search bar
+  const [search, setSearch] = useState({ search: '' })
 
   const updateSearch = (search) => {
     setSearch({ search })
@@ -83,7 +89,6 @@ export default function Plus({ route, navigation }) {
         style={{
           height: 30,
           width: '100%',
-          
         }}
       />
     )
@@ -103,19 +108,16 @@ export default function Plus({ route, navigation }) {
               height: -10,
               marginTop: -40,
               borderRadius: 18,
-
-              
             }}
             onPress={() => navigation.goBack()}
-          >
-          </TouchableOpacity>
+          ></TouchableOpacity>
           <Image
             style={{
               alignSelf: 'center',
               width: 35,
               height: 35,
               borderRadius: 5,
-              top:65,
+              top: 65,
             }}
             source={arrow}
           />
@@ -197,7 +199,7 @@ export default function Plus({ route, navigation }) {
               onPress={() => navigation.goBack()}
               style={{
                 position: 'absolute',
-                top:60,
+                top: 60,
                 fontSize: 30,
                 alignSelf: 'center',
                 textAlign: 'center',

@@ -144,11 +144,11 @@ export default function WaterPlant({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={{ position: 'relative', top: -25 }}>
-        <FlatList
+      <View style={{ paddingBottom:150,marginTop:-50,}}>
+        <FlatList 
           data={plantList}
           header
-          contentContainerStyle={{ paddingTop: 20,}}
+          contentContainerStyle={{ paddingTop: 20,marginBottom:-30,paddingBottom:20}}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           ItemSeparatorComponent={FlatListItemSeparator}
