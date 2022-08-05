@@ -10,10 +10,13 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native'
-import { Slider } from '@miblanchard/react-native-slider'
+import { Slider } from '@miblanchard/react-native-slider';
 // import {Slider} from '@mui/material/Slider';
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+
+import useInterval from '../polling/useInterval';
 
 // import { TouchableHighlight } from 'react-native-gesture-handler'
 
@@ -55,6 +58,94 @@ export default function InfoPage({ route, navigation }) {
   const CustomWaterTracker = () => (
     <View style={styles.WaterTrackerShapeView}></View>
   )
+
+  // Setting up polling for the background of the app
+
+
+
+
+
+  // variables to keep track of whether light is on or off
+  const [redLight, setRedLight] = useState(true);
+  const [blueLight, setBlueLight] = useState(true);
+
+  // var to keep track of water level
+  const [waterLevel, setWaterLevel] = useState(null);
+
+  const waterPlant = () => {
+    console.log('Pump on');
+    axios.get('http://172.20.10.10/pumpOn').then(res => {
+      console.log(res);
+    }).catch(err => {
+      if (err) throw err;
+    })
+  }
+
+  const turnOnRed = () => {
+    console.log('Red Light')
+    if (redLight) {
+      axios.get('http://172.20.10.10/red').then(res => {
+        console.log(res);
+      }).catch(err => {
+        if (err) throw err;
+      })
+    } else {
+      axios.get('http://172.20.10.10/off').then(res => {
+        setBlueLight(true)
+        console.log(res);
+      }).catch(err => {
+        if (err) throw err;
+      })
+    }
+  }
+  const turnOnBlue = () => {
+    console.log('Blue Light')
+    if (blueLight) {
+      axios.get('http://172.20.10.10/blue').then(res => {
+        console.log(res);
+      }).catch(err => {
+        if (err) throw err;
+      })
+    } else {
+      axios.get('http://172.20.10.10/off').then(res => {
+        setRedLight(true)
+        console.log(res);
+      }).catch(err => {
+        if (err) throw err;
+      })
+    }
+  }
+
+  
+  const checkWaterlevel = () => {
+    axios.get('http://172.20.10.10/checkMoisture').then(res => {
+      let newRes =  res.request._response.split("\n")[0]
+      console.log(parseInt(newRes));
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+
+
+  // Calling the use interval for polling
+  useInterval( () => {
+    console.log('checking water level');
+    axios.get('http://172.20.10.10/checkMoisture').then(res => {
+      let newRes =  res.request._response.split("\n")[0]
+      setWaterLevel(parseInt(newRes))
+      console.log(parseInt(waterLevel));
+
+      if (waterLevel < 500) {
+        console.log("plant is being watered")
+        waterPlant()
+      } else{
+        console.log("Plant water level is fine")
+      }
+
+    }).catch(err => {
+      console.log(err)
+    })
+  }, 5000);
 
   return (
     <View style={{ alignContent: 'center', top: -70 }}>
@@ -282,7 +373,23 @@ export default function InfoPage({ route, navigation }) {
             marginRight: 80,
           }}
         >
-          <Text
+
+
+          <TouchableOpacity onPress={checkWaterlevel} style={{
+            backgroundColor: '#D3F1D5',
+            height: 40,
+            display: 'flex',
+            justifyContent: 'center',
+            borderRadius: 50
+          }}>
+            <Text style={{
+              alignSelf: 'center',
+              fontSize: 16,
+              fontWeight: '600',
+              fontFamily: 'QuickSandBold',
+            }}> Get water level </Text>
+          </TouchableOpacity>
+          {/* <Text
             style={{
               position: 'absolute',
               bottom: 41,
@@ -306,8 +413,8 @@ export default function InfoPage({ route, navigation }) {
             }}
           >
             2
-          </Text>
-          <Slider
+          </Text> */}
+          {/* <Slider
             value={WaterSliderValue}
             minimumValue={0}
             maximumValue={1}
@@ -320,8 +427,9 @@ export default function InfoPage({ route, navigation }) {
             thumbTintColor='#48A2E3'
             renderTrackMarkComponent={CustomWaterTracker}
             trackMarks={[0.8, 0.5]}
-          />
-          <View style={{ top: -40, left: -10 }}>
+          /> */}
+
+          {/* <View style={{ top: -40, left: -10 }}>
             <Text
               style={{
                 position: 'absolute',
@@ -346,7 +454,7 @@ export default function InfoPage({ route, navigation }) {
             >
               0.5 gallons per day
             </Text>
-          </View>
+          </View>*/}
         </View>
       </View>
       {/* Light Control Code */}
@@ -370,14 +478,14 @@ export default function InfoPage({ route, navigation }) {
         >
           <Image
             style={{
-              top: -10,
+              // top: -10,
               width: 55,
               height: 55,
             }}
             source={sun}
           />
 
-          <View
+          {/*<View
             style={{
               flex: 1,
               marginLeft: 60,
@@ -457,10 +565,53 @@ export default function InfoPage({ route, navigation }) {
                 }}
               >
                 50-85 F°
-              </Text>
-            </View>
-          </View>
+              </Text> */}
+          <TouchableOpacity onPress={() => {
+            setRedLight(!redLight)
+            turnOnRed()
+          }}
+            style={{
+              backgroundColor: '#D3F1D5',
+              height: 40,
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: 50,
+              marginLeft: 30,
+              width: 130,
+            }}>
+            <Text style={{
+              alignSelf: 'center',
+              fontSize: 16,
+              fontWeight: '600',
+              fontFamily: 'QuickSandBold',
+            }}> Red Light </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {
+            setBlueLight(!blueLight)
+            turnOnBlue()
+          }}
+            style={{
+              backgroundColor: '#D3F1D5',
+              height: 40,
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: 50,
+              // marginLeft: 60,
+              marginLeft: 20,
+              width: 130,
+            }}>
+            <Text style={{
+              alignSelf: 'center',
+              fontSize: 16,
+              fontWeight: '600',
+              fontFamily: 'QuickSandBold',
+            }}> Blue Light </Text>
+          </TouchableOpacity>
         </View>
+        {/* </View> */}
+        {/* </View> */}
+
       </View>
     </View>
   )
