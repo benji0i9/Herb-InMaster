@@ -25,9 +25,9 @@ export default function InfoPage({ route, navigation }) {
   const sun = require('../assets/sunicon.png')
   const waterDrop = require('../assets/waterdrop.png')
 
-  const [showTracker] = useState(true)
-  const [WaterSliderValue, setWaterSliderValue] = useState(0)
-  const [SunSliderValue, setSunSliderValue] = useState(0)
+  // const [showTracker] = useState(true)
+  // const [WaterSliderValue, setWaterSliderValue] = useState(0)
+  // const [SunSliderValue, setSunSliderValue] = useState(0)
 
   const [MonButtonClicked, setMonButtonClicked] = useState(false)
   const [TueButtonClicked, setTueButtonClicked] = useState(false)

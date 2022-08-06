@@ -19,7 +19,7 @@ import { CurrentRenderContext } from '@react-navigation/native'
 export default function LightPage({ navigation }) {
   const letter = require('../assets/letter.png')
   const planta = require('../assets/planta.png')
-  const musicIcon = require('../assets/Group.png')
+  const musicIcon = require('../assets/mazeta.png')
   const yt = require('../assets/yt.png')
   const info = require('../assets/info.png')
   const circle = require('../assets/circle.png')
@@ -97,13 +97,13 @@ export default function LightPage({ navigation }) {
             <View style={styles.V}>
               <Image style={styles.Img3} source={musicIcon} />
               <Text style={styles.text2}>
-                Be able to play music {'\n'}
-                for your plants, to help them {'\n'}
-                GROW!
+               Get ability to have multiple {'\n'}
+               plant management (must have {'\n'}
+               more than 1 HerbIn product). {'\n'}
               </Text>
             </View>
             <View style={styles.V}>
-              <Image style={styles.Img4} source={info} />
+              <Image style={styles.Img4} source={yt} />
               <Text style={styles.text5}>
                 Get acces to our videos {'\n'}
                 on how to prepare your fruits/{'\n'}
@@ -111,11 +111,11 @@ export default function LightPage({ navigation }) {
               </Text>
             </View>
             <View style={styles.V}>
-              <Image style={styles.Img3} source={yt} />
+              <Image style={styles.Img7} source={info} />
               <Text style={styles.text6}>
                 Get info on how you can use {'\n'}
-                your fruits/vegetables/herbs{'\n'}
-                in your everyday life.{'\n'}
+                your fruits/vegetables/herbs in {'\n'}
+                your everyday life.{'\n'}
               </Text>
             </View>
           </>
@@ -141,7 +141,6 @@ const styles = StyleSheet.create({
 
   Precio: {
     marginLeft: 'auto',
-    fontWeight: 'bold',
     fontSize: 25,
     fontFamily: 'QuickSandLight',
   },
@@ -161,13 +160,18 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   Img3: {
-    width: 50,
+    width: 45,
     height: 50,
     left: 25,
   },
+  Img7: {
+    width: 50,
+    height: 50,
+    marginLeft: 10,
+  },
   Img4: {
-    width: 70,
-    height: 70,
+    width: 62,
+    height: 50,
     left: 240,
   },
   Img6: {
@@ -201,21 +205,20 @@ const styles = StyleSheet.create({
   },
   text2: {
     fontSize: 15,
-    left: 44,
+    marginLeft: 25,
     textAlign: 'center',
-    fontWeight: '500',
-    fontFamily: 'QuickSandBold',
+    fontFamily: 'QuickSandMedium',
   },
   text6: {
+    marginLeft: 10,
     textAlign: 'center',
     fontWeight: '500',
-    left: 50,
-    fontFamily: 'QuickSandBold',
+    fontFamily: 'QuickSandMedium',
   },
   text5: {
     textAlign: 'center',
     right: 45,
     fontWeight: '500',
-    fontFamily: 'QuickSandBold',
+    fontFamily: 'QuickSandMedium',
   },
 })
