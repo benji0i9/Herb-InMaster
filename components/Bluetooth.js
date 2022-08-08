@@ -61,8 +61,8 @@ export default function Bluetooth() {
                 >
                   {item.Name}
                 </Text>
-                <TouchableHighlight
-                  onPress={() => navigation.navigate('Info', item)}
+                <TouchableOpacity
+                  onPress={() => console.log('connected')}
                   style={{
                     width: 60,
                     height: 30,
@@ -78,7 +78,7 @@ export default function Bluetooth() {
                   >
                     Connect
                   </Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
               </View>
             </>
           )}
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     justifyContents: 'Center',
   },
   text: {
-    marginTop: 40,
+    marginTop: 50,
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 20,

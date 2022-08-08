@@ -92,7 +92,7 @@ export default function WaterPlant({ navigation }) {
   //  }
   return (
     <View style={styles.container}>
-      <View style={{ flexDirection: 'row', padding: 22, top: 2 }}>
+      <View style={{ flexDirection: 'row', padding: 22, top: 20 }}>
         <View style={styles.plusView}>
           <View
             style={{
@@ -144,7 +144,7 @@ export default function WaterPlant({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={{ paddingBottom:150,marginTop:-50,}}>
+      <View style={{ paddingBottom:150,marginTop:-10,}}>
         <FlatList 
           data={plantList}
           header
@@ -160,7 +160,7 @@ export default function WaterPlant({ navigation }) {
                     alignSelf: 'center',
                     width: 160,
                     height: 160,
-                    top: -10,
+                    top: -20,
                   }}
                   source={item.img}
                 />

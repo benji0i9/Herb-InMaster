@@ -171,7 +171,7 @@ export default function InfoPage({ route, navigation }) {
       <View style={{ flexDirection: 'row', padding: 22, top: 55 }}>
         <TouchableOpacity
           activeOpacity={1}
-          style={{ top: 67, width: 20, height: -10, marginTop: -40 }}
+          style={{ top: 60, width: 20, height: -10, marginTop: -40 }}
           onPress={() => navigation.goBack()}
         >
           <Image
@@ -190,7 +190,7 @@ export default function InfoPage({ route, navigation }) {
         <TouchableOpacity
           style={{
             display: 'flex',
-            alignItems: 'center',
+            justifyContent: 'center',
             marginTop: 35,
             marginLeft: 'auto',
             backgroundColor: 'black',
@@ -206,7 +206,7 @@ export default function InfoPage({ route, navigation }) {
               color: 'white',
               fontSize: 20,
               fontFamily: 'QuickSand',
-              textAlign: 'center',
+              textAlign: 'center'
             }}
           >
             {' '}
@@ -258,7 +258,7 @@ export default function InfoPage({ route, navigation }) {
           {/* Mon Button */}
           <TouchableOpacity
             onPress={toggleButtonMon}
-            style={{ width: 50, height: 64 }}
+            style={{ width: 50, height: 64, display: 'flex', justifyContent: 'center' }}
           >
             <View
               style={
@@ -574,14 +574,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     top: 22,
-    left: 8,
+    // left: 8,
     fontFamily: 'QuickSandBold',
+    textAlign: 'center'
   },
   DayButtonText2: {
     fontSize: 16,
     fontWeight: '600',
     top: 22,
-    left: 11,
+    // left: 11,
+    textAlign: 'center',
     fontFamily: 'QuickSandBold',
   },
   pressed: {
