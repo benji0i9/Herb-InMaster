@@ -10,13 +10,13 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native'
-import { Slider } from '@miblanchard/react-native-slider';
+import { Slider } from '@miblanchard/react-native-slider'
 // import {Slider} from '@mui/material/Slider';
 
-import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import { useState, useEffect, useRef } from 'react'
+import axios from 'axios'
 
-import useInterval from '../polling/useInterval';
+import useInterval from '../polling/useInterval'
 
 // import { TouchableHighlight } from 'react-native-gesture-handler'
 
@@ -24,6 +24,10 @@ export default function InfoPage({ route, navigation }) {
   const arrow = require('../assets/arrow.png')
   const sun = require('../assets/sunicon.png')
   const waterDrop = require('../assets/waterdrop.png')
+  const Lowwater = require('../assets/Lowwater.png')
+  const Highwater = require('../assets/Highwater.png')
+  const redlight = require('../assets/redlight.png')
+  const bluelight = require ('../assets/bluelight.png')
 
   // const [showTracker] = useState(true)
   // const [WaterSliderValue, setWaterSliderValue] = useState(0)
@@ -61,91 +65,105 @@ export default function InfoPage({ route, navigation }) {
 
   // Setting up polling for the background of the app
 
-
-
-
-
   // variables to keep track of whether light is on or off
-  const [redLight, setRedLight] = useState(true);
-  const [blueLight, setBlueLight] = useState(true);
+  const [redLight, setRedLight] = useState(true)
+  const [blueLight, setBlueLight] = useState(true)
 
   // var to keep track of water level
-  const [waterLevel, setWaterLevel] = useState(null);
+  const [waterLevel, setWaterLevel] = useState(null)
 
   const waterPlant = () => {
-    console.log('Pump on');
-    axios.get('http://172.20.10.10/pumpOn').then(res => {
-      console.log(res);
-    }).catch(err => {
-      if (err) throw err;
-    })
+    console.log('Pump on')
+    axios
+      .get('http://172.20.10.10/pumpOn')
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        if (err) throw err
+      })
   }
 
   const turnOnRed = () => {
     console.log('Red Light')
     if (redLight) {
-      axios.get('http://172.20.10.10/red').then(res => {
-        console.log(res);
-      }).catch(err => {
-        if (err) throw err;
-      })
+      axios
+        .get('http://172.20.10.10/red')
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => {
+          if (err) throw err
+        })
     } else {
-      axios.get('http://172.20.10.10/off').then(res => {
-        setBlueLight(true)
-        console.log(res);
-      }).catch(err => {
-        if (err) throw err;
-      })
+      axios
+        .get('http://172.20.10.10/off')
+        .then((res) => {
+          setBlueLight(true)
+          console.log(res)
+        })
+        .catch((err) => {
+          if (err) throw err
+        })
     }
   }
   const turnOnBlue = () => {
     console.log('Blue Light')
     if (blueLight) {
-      axios.get('http://172.20.10.10/blue').then(res => {
-        console.log(res);
-      }).catch(err => {
-        if (err) throw err;
-      })
+      axios
+        .get('http://172.20.10.10/blue')
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => {
+          if (err) throw err
+        })
     } else {
-      axios.get('http://172.20.10.10/off').then(res => {
-        setRedLight(true)
-        console.log(res);
-      }).catch(err => {
-        if (err) throw err;
-      })
+      axios
+        .get('http://172.20.10.10/off')
+        .then((res) => {
+          setRedLight(true)
+          console.log(res)
+        })
+        .catch((err) => {
+          if (err) throw err
+        })
     }
   }
 
-  
   const checkWaterlevel = () => {
-    axios.get('http://172.20.10.10/checkMoisture').then(res => {
-      let newRes =  res.request._response.split("\n")[0]
-      console.log(parseInt(newRes));
-    }).catch(err => {
-      console.log(err)
-    })
+    axios
+      .get('http://172.20.10.10/checkMoisture')
+      .then((res) => {
+        let newRes = res.request._response.split('\n')[0]
+        console.log(parseInt(newRes))
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
-
   // Calling the use interval for polling
-  useInterval( () => {
-    console.log('checking water level');
-    axios.get('http://172.20.10.10/checkMoisture').then(res => {
-      let newRes =  res.request._response.split("\n")[0]
-      setWaterLevel(parseInt(newRes))
-      console.log(parseInt(waterLevel));
+  useInterval(() => {
+    console.log('checking water level')
+    axios
+      .get('http://172.20.10.10/checkMoisture')
+      .then((res) => {
+        let newRes = res.request._response.split('\n')[0]
+        setWaterLevel(parseInt(newRes))
+        console.log(parseInt(waterLevel))
 
-      if (waterLevel < 500) {
-        console.log("plant is being watered")
-        waterPlant()
-      } else{
-        console.log("Plant water level is fine")
-      }
-
-    }).catch(err => {
-      console.log(err)
-    })
-  }, 5000);
+        if (waterLevel < 500) {
+          console.log('plant is being watered')
+          waterPlant()
+        } else {
+          console.log('Plant water level is fine')
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, 5000)
 
   return (
     <View style={{ alignContent: 'center', top: -70 }}>
@@ -192,7 +210,7 @@ export default function InfoPage({ route, navigation }) {
             }}
           >
             {' '}
-            Delete{' '}
+            Edit{' '}
           </Text>
         </TouchableOpacity>
       </View>
@@ -347,8 +365,8 @@ export default function InfoPage({ route, navigation }) {
         style={{
           left: 20,
           fontSize: 22,
-          top: -10,
-          fontFamily: 'QuickSandMedium',
+          top: -30,
+          fontFamily: 'QuickSand',
         }}
       >
         Water Control
@@ -357,7 +375,6 @@ export default function InfoPage({ route, navigation }) {
       <View style={{ flexDirection: 'row' }}>
         <Image
           style={{
-            top: 10,
             left: 20,
             width: 35,
             height: 50,
@@ -371,99 +388,78 @@ export default function InfoPage({ route, navigation }) {
             top: 10,
             marginLeft: 80,
             marginRight: 80,
+            flexDirection: 'row',
           }}
         >
-
-
-          <TouchableOpacity onPress={checkWaterlevel} style={{
-            backgroundColor: '#D3F1D5',
-            height: 40,
-            display: 'flex',
-            justifyContent: 'center',
-            borderRadius: 50
-          }}>
-            <Text style={{
-              alignSelf: 'center',
-              fontSize: 16,
-              fontWeight: '600',
-              fontFamily: 'QuickSandBold',
-            }}> Get water level </Text>
-          </TouchableOpacity>
-          {/* <Text
+          <TouchableOpacity
+            onPress={checkWaterlevel}
             style={{
-              position: 'absolute',
-              bottom: 41,
-              fontSize: 16,
-              left: -2,
-              fontWeight: '600',
-              fontFamily: 'QuickSandMedium',
+              height: 40,
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: 50,
             }}
           >
-            0
-          </Text>
-
-          <Text
-            style={{
-              position: 'absolute',
-              bottom: 39,
-              fontSize: 16,
-              left: 186,
-              fontWeight: '600',
-              fontFamily: 'QuickSandMedium',
-            }}
-          >
-            2
-          </Text> */}
-          {/* <Slider
-            value={WaterSliderValue}
-            minimumValue={0}
-            maximumValue={1}
-            step={0.1}
-            onValueChange={(WaterSliderValue) =>
-              setWaterSliderValue(WaterSliderValue)
-            }
-            maximumTrackTintColor='#D9D9D9'
-            minimumTrackTintColor='#75C6E9'
-            thumbTintColor='#48A2E3'
-            renderTrackMarkComponent={CustomWaterTracker}
-            trackMarks={[0.8, 0.5]}
-          /> */}
-
-          {/* <View style={{ top: -40, left: -10 }}>
-            <Text
+            <Image
               style={{
-                position: 'absolute',
-                top: 40,
-                fontSize: 14,
-                fontWeight: '600',
-                fontFamily: 'QuickSandMedium',
+                marginLeft: 10,
+                width: 55,
+                height: 55,
               }}
-            >
-              Recommended amount:
-            </Text>
-
+              source={Lowwater}
+            />
             <Text
               style={{
-                position: 'absolute',
-                top: 54,
-                fontSize: 13,
-                color: '#6A6A6A',
-                fontWeight: '300',
+                textAlign: 'left',
+                fontSize: 16,
+                fontWeight: '600',
                 fontFamily: 'QuickSandBold',
               }}
             >
-              0.5 gallons per day
+              {' '}
+              Low water{' '}
             </Text>
-          </View>*/}
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={checkWaterlevel}
+            style={{
+              height: 40,
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: 50,
+              marginLeft: 50,
+            }}
+          >
+            <Image
+              style={{
+                width: 55,
+                height: 55,
+                marginLeft: 10,
+              }}
+              source={Highwater}
+            />
+            <Text
+              style={{
+                textAlign: 'left',
+                fontSize: 16,
+                fontWeight: '600',
+                fontFamily: 'QuickSandBold',
+              }}
+            >
+              {' '}
+              High water{' '}
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
       {/* Light Control Code */}
-      <View style={{ marginTop: 30, left: -10 }}>
+      <View style={{ marginTop: 35, left: -10 }}>
         <Text
           style={{
             left: 30,
             fontSize: 22,
-            fontFamily: 'QuickSandMedium',
+            fontFamily: 'QuickSand',
           }}
         >
           Light Control
@@ -478,140 +474,83 @@ export default function InfoPage({ route, navigation }) {
         >
           <Image
             style={{
-              // top: -10,
+              marginLeft: 10,
               width: 55,
               height: 55,
+              marginTop: 20,
             }}
             source={sun}
           />
 
-          {/*<View
+          <TouchableOpacity
+            onPress={() => {
+              setRedLight(!redLight)
+              turnOnRed()
+            }}
             style={{
-              flex: 1,
-              marginLeft: 60,
-              marginRight: 80,
-              flexDirection: 'column',
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: 50,
+              marginLeft: 50,
             }}
           >
-            <View
+            <Image
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                marginTop: 20,
+                marginLeft: 10,
+                width: 55,
+                height: 55,
+              }}
+              source={redlight}
+            />
+            {/* <Text
+              style={{
+                marginLeft: 10,
+                fontSize: 16,
+                fontWeight: '600',
+                fontFamily: 'QuickSandBold',
               }}
             >
-              <Text
-                style={{
-                  // fontSize: 16,
-                  // fontWeight: '600'
-                  fontFamily: 'QuickSandBold',
-                }}
-              >
-                Reg
-              </Text>
-              <Text
-                style={{
-                  // fontSize: 1,
-                  // fontWeight: '600',
-                  fontFamily: 'QuickSandBold',
-                }}
-              >
-                90°
-              </Text>
-            </View>
-
-            <View>
-              <View style={{ width: 165 }}>
-                <Slider
-                  value={SunSliderValue}
-                  minimumValue={0}
-                  maximumValue={2}
-                  step={0.1}
-                  onValueChange={(SunSliderValue) =>
-                    setSunSliderValue(SunSliderValue)
-                  }
-                  maximumTrackTintColor='#D9D9D9'
-                  minimumTrackTintColor='#FFDF6F'
-                  thumbTintColor='#F1BC6C'
-                  renderTrackMarkComponent={CustomSunTracker}
-                  trackMarks={[0.8]}
-                />
-              </View>
-
-              <Text
-                style={{
-                  top: -10,
-                  position: 'relative',
-                  fontSize: 14,
-                  fontWeight: '600',
-                  fontFamily: 'QuickSandMedium',
-                  flexDirection: 'row',
-                  width: 200,
-                  height: 20,
-                  left: -10,
-                }}
-              >
-                Recommended amount:{'\n'}
-              </Text>
-
-              <Text
-                style={{
-                  left: -10,
-                  top: -10,
-                  height: 20,
-                  fontSize: 13,
-                  fontWeight: '300',
-                  fontFamily: 'QuickSandBold',
-                  color: '#6A6A6A',
-                }}
-              >
-                50-85 F°
-              </Text> */}
-          <TouchableOpacity onPress={() => {
-            setRedLight(!redLight)
-            turnOnRed()
-          }}
-            style={{
-              backgroundColor: '#D3F1D5',
-              height: 40,
-              display: 'flex',
-              justifyContent: 'center',
-              borderRadius: 50,
-              marginLeft: 30,
-              width: 130,
-            }}>
-            <Text style={{
-              alignSelf: 'center',
-              fontSize: 16,
-              fontWeight: '600',
-              fontFamily: 'QuickSandBold',
-            }}> Red Light </Text>
+              {' '}
+              Red Light{' '}
+            </Text> */}
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => {
-            setBlueLight(!blueLight)
-            turnOnBlue()
-          }}
+          <TouchableOpacity
+            onPress={() => {
+              setBlueLight(!blueLight)
+              turnOnBlue()
+            }}
             style={{
-              backgroundColor: '#D3F1D5',
               height: 40,
               display: 'flex',
               justifyContent: 'center',
               borderRadius: 50,
-              // marginLeft: 60,
-              marginLeft: 20,
-              width: 130,
-            }}>
-            <Text style={{
-              alignSelf: 'center',
-              fontSize: 16,
-              fontWeight: '600',
-              fontFamily: 'QuickSandBold',
-            }}> Blue Light </Text>
+              marginLeft: 50,
+            }}
+          >
+            <Image
+              style={{
+                marginTop: 20,
+                marginLeft: 35,
+                width: 55,
+                height: 55,
+              }}
+              source={bluelight}
+            />
+            {/* <Text
+              style={{
+                marginLeft: 1,
+                fontSize: 16,
+                fontWeight: '600',
+                fontFamily: 'QuickSandBold',
+              }}
+            >
+              {' '}
+              Blue Light{' '}
+            </Text> */}
           </TouchableOpacity>
         </View>
-        {/* </View> */}
-        {/* </View> */}
-
       </View>
     </View>
   )
