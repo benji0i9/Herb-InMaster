@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+
+import { Text, View, StyleSheet, Image, useState } from 'react-native'
 import { NavigationContainer, StackActions } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Water from './components/Water.js'
@@ -12,12 +13,35 @@ import { Ionicons } from '@expo/vector-icons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useFonts } from 'expo-font'
 
+export default function App() {
+  const [loaded] = useFonts({
+    QuickSand: require('./assets/fonts/Quicksand.ttf'),
+    QuickSandLight: require('./assets/fonts/QuicksandLight.ttf'),
+    QuickSandBold: require('./assets/fonts/QuicksandBold.ttf'),
+    QuickSandMedium: require('./assets/fonts/QuicksandMedium.ttf'),
+  })
+
+  if (!loaded) {
+    return null
+  }
+
+  return (
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+  )
+}
+
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
+const PlantIcon = require('./assets/planta2.png')
 
 function MyTabs() {
   return (
-    <Tab.Navigator initialRouteName='My Garden'>
+    <Tab.Navigator
+      initialRouteName='My Garden'
+      screenOptions={{ tabBarActiveTintColor: '#D3F1D5' }}
+    >
       <Tab.Screen
         name='Bluetooth'
         component={Bluetooth}
@@ -25,7 +49,7 @@ function MyTabs() {
           headerShown: false,
           tabBarShowLabel: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name='bluetooth' color={color} size={35} />
+            <MaterialCommunityIcons name='bluetooth' size={35} color={color} />
           ),
         }}
       />
@@ -47,7 +71,7 @@ function MyTabs() {
           tabBarShowLabel: false,
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name='microphone' color={color} size={35} />
+            <Image source={PlantIcon} style={{ width: 50, height: 50 }} />
           ),
         }}
       />
@@ -55,37 +79,18 @@ function MyTabs() {
   )
 }
 
-
 function MyStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        
         headerShown: false,
       }}
-      initialRouteName = 'Home'
->
-      <Stack.Screen name= 'Add' component={Plus}/>
+      initialRouteName='Home'
+    >
+      <Stack.Screen name='Add' component={Plus} />
       <Stack.Screen name='Home' component={MyTabs} />
       <Stack.Screen name='Info' component={InfoPage} />
     </Stack.Navigator>
-  )
-}
-
-export default function App() {
-  const [loaded] = useFonts({
-    QuickSand: require('./assets/fonts/Quicksand.ttf'),
-    QuickSandLight: require('./assets/fonts/QuicksandLight.ttf'),
-    QuickSandBold: require('./assets/fonts/QuicksandBold.ttf'),
-    QuickSandMedium: require('./assets/fonts/QuicksandMedium.ttf'),
-  })
-  if(!loaded){
-    return null
-  }
-  return (
-    <NavigationContainer>
-      <MyStack />
-    </NavigationContainer>
   )
 }
 
